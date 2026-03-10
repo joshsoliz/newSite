@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>[ Project Title ] — Josh Soliz</title>
+  <meta name="description" content="[ One sentence about the project — client, what you made, why it mattered. ]" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Sora:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+
+    /* ── PROJECT HERO ── */
+    .project-hero {
+      min-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 0 0 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-hero-bg {
+      position: absolute;
+      inset: 0;
+      background-color: var(--navy);
+      /* Replace with: background-image: url('your-hero-image.jpg'); */
+      background-size: cover;
+      background-position: center;
+    }
+
+    .project-hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(5,8,15,0.3) 0%,
+        rgba(5,8,15,0.15) 40%,
+        rgba(5,8,15,0.85) 80%,
+        var(--navy-deep) 100%
+      );
+    }
+
+    .project-hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 32px;
+      width: 100%;
+    }
+
+    .project-hero-meta {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .project-tag {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--blue);
+      background: rgba(5,8,15,0.5);
+      border: 1px solid rgba(77,184,255,0.25);
+      padding: 5px 12px;
+      border-radius: 3px;
+    }
+
+    .project-year {
+      font-size: 13px;
+      color: var(--gray);
+    }
+
+    .project-hero h1 {
+      font-size: clamp(40px, 7vw, 88px);
+      font-weight: 700;
+      line-height: 1.02;
+      letter-spacing: -0.03em;
+      margin-bottom: 16px;
+    }
+
+    .project-hero-client {
+      font-size: 18px;
+      color: var(--gray);
+      font-weight: 300;
+    }
+
+    /* ── PROJECT BODY ── */
+    .project-body {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 32px 120px;
+    }
+
+    /* Overview row */
+    .project-overview {
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 80px;
+      padding: 80px 0;
+      border-bottom: 1px solid var(--gray-dim);
+    }
+
+    .project-intro p {
+      font-size: 20px;
+      font-weight: 300;
+      color: var(--gray);
+      line-height: 1.75;
+    }
+
+    .project-intro p + p {
+      margin-top: 20px;
+    }
+
+    .project-details {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      padding-top: 6px;
+    }
+
+    .project-detail-item {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .detail-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--blue);
+    }
+
+    .detail-value {
+      font-size: 15px;
+      color: var(--white);
+      line-height: 1.5;
+    }
+
+    /* Full-width media */
+    .project-media {
+      margin: 72px 0;
+    }
+
+    .media-full {
+      width: 100%;
+      aspect-ratio: 16/9;
+      border-radius: 8px;
+      background: var(--navy-mid);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .media-full img,
+    .media-full video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .media-placeholder {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      color: var(--gray);
+      font-size: 14px;
+    }
+
+    .media-placeholder .play-icon {
+      font-size: 40px;
+      color: var(--blue);
+      opacity: 0.5;
+    }
+
+    .media-grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .media-grid-3 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 16px;
+    }
+
+    .media-tall {
+      aspect-ratio: 4/5;
+    }
+
+    .media-square {
+      aspect-ratio: 1/1;
+    }
+
+    /* Section blocks */
+    .project-section {
+      padding: 72px 0;
+      border-bottom: 1px solid var(--gray-dim);
+    }
+
+    .project-section:last-of-type {
+      border-bottom: none;
+    }
+
+    .project-section-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 20px;
+    }
+
+    .project-section h2 {
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 24px;
+    }
+
+    .project-section p {
+      font-size: 17px;
+      color: var(--gray);
+      line-height: 1.8;
+      max-width: 680px;
+    }
+
+    .project-section p + p {
+      margin-top: 16px;
+    }
+
+    /* Deliverables list */
+    .deliverables-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .deliverables-list li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 16px;
+      color: var(--gray);
+    }
+
+    .deliverables-list li::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--blue);
+      flex-shrink: 0;
+    }
+
+    /* Pull quote */
+    .pull-quote {
+      border-left: 2px solid var(--blue);
+      padding: 8px 0 8px 28px;
+      margin: 48px 0;
+    }
+
+    .pull-quote p {
+      font-size: clamp(20px, 3vw, 28px) !important;
+      font-weight: 300;
+      color: var(--white) !important;
+      font-style: italic;
+      line-height: 1.5 !important;
+      max-width: 100% !important;
+    }
+
+    /* Next project */
+    .next-project {
+      margin-top: 80px;
+      padding-top: 60px;
+      border-top: 1px solid var(--gray-dim);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .next-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 8px;
+    }
+
+    .next-title {
+      font-size: clamp(22px, 3vw, 36px);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--white);
+      transition: color 0.3s ease;
+    }
+
+    .next-project a:hover .next-title {
+      color: var(--blue);
+    }
+
+    .next-arrow {
+      font-size: 32px;
+      color: var(--blue);
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .project-overview {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+      .media-grid-2,
+      .media-grid-3 {
+        grid-template-columns: 1fr;
+      }
+      .next-project {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+      }
+    }
+  </style>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SV59LPTN0T"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-SV59LPTN0T');
+  </script>
+  <link rel="icon" href="favicon.webp" type="image/webp" />
+  <link rel="apple-touch-icon" href="favicon.webp" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-logo">Josh Soliz</a>
+    <ul class="nav-links">
+      <li><a href="index.html#work">Work</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="contact.html" class="nav-cta">Let's talk</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="project-hero">
+    <div class="project-hero-bg">
+      <!-- Replace background-color with background-image: url('hero.jpg') in CSS above -->
+    </div>
+    <div class="project-hero-content">
+      <div class="project-hero-meta">
+        <span class="project-tag">[ Video Production / Motion Design / Photography ]</span>
+        <span class="project-year">[ 2025 ]</span>
+      </div>
+      <h1>[ Project Title ]</h1>
+      <p class="project-hero-client">[ Client Name ]</p>
+    </div>
+  </section>
+
+  <!-- BODY -->
+  <div class="project-body">
+
+    <!-- OVERVIEW -->
+    <div class="project-overview">
+      <div class="project-intro">
+        <p>[ 2-3 sentences about the project at a high level. What was the situation? What were they trying to accomplish? Keep it conversational — write it like you'd explain it to someone over coffee. ]</p>
+        <p>[ What made this project interesting or meaningful to you? What was the creative challenge? ]</p>
+      </div>
+      <div class="project-details">
+        <div class="project-detail-item">
+          <span class="detail-label">Client</span>
+          <span class="detail-value">[ Client Name ]</span>
+        </div>
+        <div class="project-detail-item">
+          <span class="detail-label">Services</span>
+          <span class="detail-value">[ Video Production<br />Motion Graphics<br />Photography ]</span>
+        </div>
+        <div class="project-detail-item">
+          <span class="detail-label">Year</span>
+          <span class="detail-value">[ 2025 ]</span>
+        </div>
+        <div class="project-detail-item">
+          <span class="detail-label">Deliverables</span>
+          <span class="detail-value">[ e.g. Brand film, 3 social cuts, 40 photos ]</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- FULL VIDEO/IMAGE -->
+    <div class="project-media">
+      <div class="media-full">
+        <!-- Replace with: <video src="project-video.mp4" autoplay muted loop playsinline></video> -->
+        <!-- Or: <img src="project-hero.jpg" alt="[ describe the image ]" /> -->
+        <div class="media-placeholder">
+          <span class="play-icon">▶</span>
+          <p>[ Main video or hero image ]</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- THE BRIEF -->
+    <div class="project-section">
+      <p class="project-section-label">The Brief</p>
+      <h2>[ What they came to you needing ]</h2>
+      <p>[ Describe what the client actually needed. What problem were they trying to solve? What was the context — launch, event, rebrand, growth? Keep it honest. ]</p>
+      <p>[ What were the constraints? Timeline, budget, platform, audience? ]</p>
+    </div>
+
+    <!-- IMAGE GRID -->
+    <div class="project-media">
+      <div class="media-grid-2">
+        <div class="media-full">
+          <!-- <img src="image-1.jpg" alt="[ describe ]" /> -->
+          <div class="media-placeholder"><p>[ Image ]</p></div>
+        </div>
+        <div class="media-full">
+          <!-- <img src="image-2.jpg" alt="[ describe ]" /> -->
+          <div class="media-placeholder"><p>[ Image ]</p></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- THE WORK -->
+    <div class="project-section">
+      <p class="project-section-label">The Work</p>
+      <h2>[ What you actually made and why ]</h2>
+      <p>[ Walk through your creative decisions. Why did you approach it this way? What were you going for? This doesn't have to be technical — just honest. ]</p>
+
+      <div class="pull-quote">
+        <p>"[ Pull a memorable line from the project, client feedback, or your own process. Something that captures what this was about. ]"</p>
+      </div>
+
+      <p>[ Anything else worth knowing about the process, collaboration, or outcome. ]</p>
+
+      <ul class="deliverables-list">
+        <li>[ Deliverable 1 — e.g. 90-second brand film ]</li>
+        <li>[ Deliverable 2 — e.g. 3 x 15-second social cuts ]</li>
+        <li>[ Deliverable 3 — e.g. Animated logo for broadcast ]</li>
+        <li>[ Deliverable 4 — e.g. 60 event photos ]</li>
+      </ul>
+    </div>
+
+    <!-- PHOTO GRID (3-up) -->
+    <div class="project-media">
+      <div class="media-grid-3">
+        <div class="media-full media-square">
+          <!-- <img src="photo-1.jpg" alt="[ describe ]" /> -->
+          <div class="media-placeholder"><p>[ Photo ]</p></div>
+        </div>
+        <div class="media-full media-square">
+          <!-- <img src="photo-2.jpg" alt="[ describe ]" /> -->
+          <div class="media-placeholder"><p>[ Photo ]</p></div>
+        </div>
+        <div class="media-full media-square">
+          <!-- <img src="photo-3.jpg" alt="[ describe ]" /> -->
+          <div class="media-placeholder"><p>[ Photo ]</p></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NEXT PROJECT -->
+    <div class="next-project">
+      <div>
+        <p class="next-label">Next project</p>
+        <a href="project.html">
+          <p class="next-title">[ Next Project Name ] →</p>
+        </a>
+      </div>
+      <a href="index.html#work" class="btn-secondary">All work</a>
+    </div>
+
+  </div><!-- /project-body -->
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-inner">
+      <span class="nav-logo">Josh Soliz</span>
+      <p class="footer-copy">© 2026 · Video Content · Clarksville, TN</p>
+      <div class="footer-links">
+        <a href="https://instagram.com/joshuasoliz_" target="_blank">Instagram</a>
+        <a href="https://linkedin.com/in/joshua-soliz/" target="_blank">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
