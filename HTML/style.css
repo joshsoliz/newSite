@@ -147,8 +147,7 @@ nav {
   inset: 0;
   background:
     radial-gradient(ellipse 80% 60% at 50% 0%, rgba(29, 78, 138, 0.35) 0%, transparent 70%),
-    radial-gradient(ellipse 50% 40% at 80% 80%, rgba(15, 40, 80, 0.3) 0%, transparent 60%),
-    var(--navy-deep);
+    radial-gradient(ellipse 50% 40% at 80% 80%, rgba(15, 40, 80, 0.3) 0%, transparent 60%);
 }
 
 /* Subtle animated glow */
@@ -309,6 +308,7 @@ footer .btn-primary {
   height: 120%;
   pointer-events: none;
   border: none;
+  filter: saturate(0.85);
 }
 
 .hero-video-overlay {
