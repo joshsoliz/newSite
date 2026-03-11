@@ -1145,6 +1145,9 @@ footer {
   .testimonial-card { padding: 28px; }
   .contact { padding: 100px 0; }
 
+  /* Hide background reel on mobile */
+  .hero-video-bg { display: none; }
+
   /* Work grid — full width cards on mobile */
   .work-grid {
     grid-template-columns: 1fr;
