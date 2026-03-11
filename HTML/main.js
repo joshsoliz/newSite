@@ -1,3 +1,39 @@
+// ── REEL MODAL ──
+const reelModal    = document.getElementById('reelModal');
+const reelIframe   = document.getElementById('reelModalIframe');
+const watchReelBtn = document.getElementById('watchReelBtn');
+const modalClose   = document.getElementById('reelModalClose');
+const REEL_SRC     = 'https://iframe.mediadelivery.net/embed/563470/fda19b02-1470-49c8-8bd5-f665973f8e04?autoplay=true&loop=false&muted=false&preload=false&responsive=true';
+
+function openReel() {
+  if (!reelModal) return;
+  reelIframe.src = REEL_SRC;
+  reelModal.classList.add('open');
+  reelModal.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeReel() {
+  if (!reelModal) return;
+  reelModal.classList.remove('open');
+  reelModal.setAttribute('aria-hidden', 'true');
+  reelIframe.src = '';
+  document.body.style.overflow = '';
+}
+
+if (watchReelBtn) watchReelBtn.addEventListener('click', openReel);
+if (modalClose)   modalClose.addEventListener('click', closeReel);
+
+if (reelModal) {
+  reelModal.addEventListener('click', (e) => {
+    if (!e.target.closest('.reel-modal-content')) closeReel();
+  });
+}
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && reelModal && reelModal.classList.contains('open')) closeReel();
+});
+
 // ── STYLEFRAME VIDEO STILLS ──
 document.querySelectorAll('video[data-frametime]').forEach(v => {
   const t = parseFloat(v.dataset.frametime);

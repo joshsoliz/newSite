@@ -14,13 +14,13 @@
   <meta property="og:url" content="https://joshsoliz.com/" />
   <meta property="og:title" content="Josh Soliz — Motion Designer, Videographer & Photographer" />
   <meta property="og:description" content="Motion design, video production, and photography for brands that care about how they show up. Based in Clarksville, TN." />
-  <meta property="og:image" content="https://joshsoliz.com/favicon.webp" />
+  <meta property="og:image" content="https://joshsoliz.com/og-image.jpg" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Josh Soliz — Motion Designer, Videographer & Photographer" />
   <meta name="twitter:description" content="Motion design, video production, and photography for brands that care about how they show up." />
-  <meta name="twitter:image" content="https://joshsoliz.com/favicon.webp" />
+  <meta name="twitter:image" content="https://joshsoliz.com/og-image.jpg" />
 
   <!-- Local Business Schema -->
   <script type="application/ld+json">
@@ -72,9 +72,18 @@
 
   <!-- HERO -->
   <section class="hero">
+    <!-- Looping reel as background -->
+    <div class="hero-video-bg">
+      <iframe
+        src="https://iframe.mediadelivery.net/embed/563470/fda19b02-1470-49c8-8bd5-f665973f8e04?autoplay=true&loop=true&muted=true&controls=false&preload=true&responsive=true"
+        allow="accelerometer; gyroscope; autoplay; encrypted-media;"
+        loading="eager">
+      </iframe>
+      <div class="hero-video-overlay"></div>
+    </div>
     <div class="hero-bg"></div>
     <div class="hero-content">
-      <p class="hero-eyebrow">Video Marketing · Clarksville, TN</p>
+      <p class="hero-eyebrow">Video Content · Clarksville, TN</p>
       <h1 class="hero-headline">
         Video that looks good<br />and sounds like you.
       </h1>
@@ -86,24 +95,25 @@
         <a href="contact.html" class="btn-primary">Let's work together →</a>
         <a href="#work" class="btn-hero-secondary">or see the work first ↓</a>
       </div>
+      <div class="hero-reel-link">
+        <button class="btn-watch-reel" id="watchReelBtn">
+          <span class="btn-watch-reel-icon">▶</span>
+          Watch the reel full screen
+        </button>
+      </div>
     </div>
     <div class="hero-gradient-bottom"></div>
   </section>
 
-  <!-- REEL -->
-  <section class="reel" id="reel">
-    <div class="reel-wrapper">
-      <div class="video-placeholder">
-        <iframe
-          src="https://iframe.mediadelivery.net/embed/563470/fda19b02-1470-49c8-8bd5-f665973f8e04?autoplay=true&loop=true&muted=true&preload=true&responsive=true"
-          loading="lazy"
-          style="border:none; position:absolute; inset:0; width:100%; height:100%;"
-          allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
-          allowfullscreen>
-        </iframe>
+  <!-- REEL MODAL -->
+  <div class="reel-modal" id="reelModal" aria-hidden="true">
+    <button class="reel-modal-close" id="reelModalClose" aria-label="Close">✕</button>
+    <div class="reel-modal-content">
+      <div class="reel-modal-video">
+        <iframe id="reelModalIframe" src="" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;" allowfullscreen></iframe>
       </div>
     </div>
-  </section>
+  </div>
 
   <!-- WHAT I MAKE -->
   <section class="services" id="services">
@@ -144,7 +154,7 @@
 
         <a href="project-fresh-life.html" class="work-card">
           <div class="work-thumb">
-            <img src="https://images.squarespace-cdn.com/content/v1/687be35b43e91200aeaa965b/426c125c-3ad9-4e5b-a45a-5a6e41750dde/_1130393-min.jpg" alt="Fresh Life Worship" style="width:100%;height:100%;object-fit:cover;display:block;" />
+            <img src="https://images.squarespace-cdn.com/content/v1/687be35b43e91200aeaa965b/4f109743-f3b7-4f13-806e-b27692c268da/_1130399-min.jpg" alt="Fresh Life Worship church event photography" style="width:100%;height:100%;object-fit:cover;" />
             <div class="work-overlay">
               <span class="work-tag">Church</span>
               <span class="work-tag work-tag-cat">Photography</span>
@@ -155,7 +165,7 @@
 
         <a href="project-frr.html" class="work-card">
           <div class="work-thumb">
-            <iframe src="https://iframe.mediadelivery.net/embed/563470/b739adb7-979c-4a5e-b78d-c138fccc5704?t=2&autoplay=false&controls=false&muted=true&preload=true" style="width:100%;height:100%;border:none;pointer-events:none;display:block;" tabindex="-1" aria-hidden="true"></iframe>
+            <img src="https://vz-474cf03f-6bc.b-cdn.net/b739adb7-979c-4a5e-b78d-c138fccc5704/thumbnail_ad786402.jpg" alt="First Responder REBOOT — nonprofit video" style="width:100%;height:100%;object-fit:cover;" />
             <div class="work-overlay">
               <span class="work-tag">Nonprofit</span>
               <span class="work-tag work-tag-cat">Video Production</span>
@@ -166,7 +176,7 @@
 
         <a href="project-shinin.html" class="work-card">
           <div class="work-thumb">
-            <iframe src="https://iframe.mediadelivery.net/embed/563470/06a238ae-2961-4a72-baaf-1008a127cf05?t=55.5&autoplay=false&controls=false&muted=true&preload=true" style="width:100%;height:100%;border:none;pointer-events:none;display:block;" tabindex="-1" aria-hidden="true"></iframe>
+            <img src="https://vz-474cf03f-6bc.b-cdn.net/06a238ae-2961-4a72-baaf-1008a127cf05/thumbnail_e51e0eb3.jpg" alt="Shinin' lyric video — motion design" style="width:100%;height:100%;object-fit:cover;" />
             <div class="work-overlay">
               <span class="work-tag">Lyric Video</span>
               <span class="work-tag work-tag-cat">Motion Design</span>
@@ -177,10 +187,10 @@
 
         <a href="project-two-kays.html" class="work-card">
           <div class="work-thumb">
-            <iframe src="https://iframe.mediadelivery.net/embed/563470/76a6bd56-c0ba-4508-a963-9126b4e8264e?t=4&autoplay=false&controls=false&muted=true&preload=true" style="width:100%;height:100%;border:none;pointer-events:none;display:block;" tabindex="-1" aria-hidden="true"></iframe>
+            <img src="https://images.squarespace-cdn.com/content/v1/687be35b43e91200aeaa965b/b5819081-9bb5-4c36-80b6-2378687c90a6/_1220389-min.jpg" alt="Two Kay's Flower Farm brand video Kalispell MT" style="width:100%;height:100%;object-fit:cover;" />
             <div class="work-overlay">
               <span class="work-tag">Small Business</span>
-              <span class="work-tag work-tag-cat">Video Production</span>
+              <span class="work-tag work-tag-cat">Photography</span>
             </div>
           </div>
           <div class="work-info"><h4>Two Kay's Flower Farm</h4><p>Brand video & photography — Kalispell, MT</p></div>
@@ -198,12 +208,12 @@
         <h2>Hey, I'm Josh —<br />glad you're here.</h2>
         <p>
           I'm a video content creator based in Clarksville, TN, and I've had a
-          blast making content for churches, nonprofits, and small businesses over the years.
+          blast making content for organizations like REBOOT Recovery over the years.
           That work taught me that good video isn't really about budget —
           it's about knowing what you're actually trying to say.
         </p>
         <p>
-          I work with people who want their content to
+          I work with businesses, churches, and brands who want their content to
           feel as good as what they're doing. If you care about the work,
           I promise I'll care about the work too.
         </p>
