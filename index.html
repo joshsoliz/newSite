@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Josh Soliz — Motion Designer, Videographer & Photographer | Clarksville, TN</title>
+  <meta name="description" content="Josh Soliz is a motion designer, video producer, and photographer based in Clarksville, TN. Creating brand videos, motion graphics, and photography for churches, businesses, and brands." />
+  <meta name="keywords" content="motion designer Clarksville TN, video production Clarksville Tennessee, photographer Clarksville TN, motion graphics, brand video, church video production, event photography, video marketing" />
+  <link rel="canonical" href="https://joshsoliz.com/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://joshsoliz.com/" />
+  <meta property="og:title" content="Josh Soliz — Motion Designer, Videographer & Photographer" />
+  <meta property="og:description" content="Motion design, video production, and photography for brands that care about how they show up. Based in Clarksville, TN." />
+  <meta property="og:image" content="https://joshsoliz.com/og-image.jpg" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Josh Soliz — Motion Designer, Videographer & Photographer" />
+  <meta name="twitter:description" content="Motion design, video production, and photography for brands that care about how they show up." />
+  <meta name="twitter:image" content="https://joshsoliz.com/og-image.jpg" />
+
+  <!-- Local Business Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Josh Soliz",
+    "description": "Motion designer, video producer, and photographer based in Clarksville, TN.",
+    "url": "https://joshsoliz.com",
+    "telephone": "",
+    "email": "hello@joshsoliz.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Clarksville",
+      "addressRegion": "TN",
+      "addressCountry": "US"
+    },
+    "areaServed": ["Clarksville, TN", "Nashville, TN", "United States"],
+    "serviceType": ["Motion Design", "Video Production", "Photography", "Motion Graphics"]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Sora:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SV59LPTN0T"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-SV59LPTN0T');
+  </script>
+  <link rel="icon" href="favicon.webp" type="image/webp" />
+  <link rel="apple-touch-icon" href="favicon.webp" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <span class="nav-logo">Josh Soliz</span>
+    <ul class="nav-links">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="contact.html" class="nav-cta">Let's talk</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <!-- Looping reel as background -->
+    <div class="hero-video-bg">
+      <iframe
+        src="https://iframe.mediadelivery.net/embed/563470/fda19b02-1470-49c8-8bd5-f665973f8e04?autoplay=true&loop=true&muted=true&controls=false&preload=true&responsive=true"
+        allow="accelerometer; gyroscope; autoplay; encrypted-media;"
+        loading="eager">
+      </iframe>
+      <div class="hero-video-overlay"></div>
+    </div>
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Video Content · Clarksville, TN</p>
+      <h1 class="hero-headline">
+        Video that looks good<br />and sounds like you.
+      </h1>
+      <p class="hero-sub">
+        I help businesses and brands create content that's actually worth watching —<br />
+        without losing what makes 'em feel like them.
+      </p>
+      <div class="hero-ctas">
+        <a href="contact.html" class="btn-primary">Let's work together →</a>
+        <a href="#work" class="btn-hero-secondary">or see the work first ↓</a>
+      </div>
+      <div class="hero-reel-link">
+        <button class="btn-watch-reel" id="watchReelBtn">
+          <span class="btn-watch-reel-icon">▶</span>
+          Watch the reel full screen
+        </button>
+      </div>
+    </div>
+    <div class="hero-gradient-bottom"></div>
+  </section>
+
+  <!-- REEL MODAL -->
+  <div class="reel-modal" id="reelModal" aria-hidden="true">
+    <button class="reel-modal-close" id="reelModalClose" aria-label="Close">✕</button>
+    <div class="reel-modal-content">
+      <div class="reel-modal-video">
+        <iframe id="reelModalIframe" src="" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHAT I MAKE -->
+  <section class="services" id="services">
+    <div class="container">
+      <p class="section-label">What I make</p>
+      <div class="services-grid">
+
+        <a href="project-frr.html" class="service-card">
+          <span class="service-num">01</span>
+          <h3>Video Production</h3>
+          <p>Big-scale video for launches, events, brand stories, and everything in between. Got something to say? I'd love to help you say it well — from rough idea to final cut.</p>
+          <span class="service-card-cta">Check it out <span class="service-card-cta-arrow">→</span></span>
+        </a>
+
+        <a href="motion.html" class="service-card">
+          <span class="service-num">02</span>
+          <h3>Motion Design</h3>
+          <p>Animated logos, motion graphics, title sequences, lower thirds. The stuff that makes your content feel like someone genuinely thought about it — because they did.</p>
+          <span class="service-card-cta">Check it out <span class="service-card-cta-arrow">→</span></span>
+        </a>
+
+        <a href="photography.html" class="service-card">
+          <span class="service-num">03</span>
+          <h3>Photography</h3>
+          <p>Event coverage, brand portraits, and everything you need to actually show up online. Real moments, good light, no stiff poses — just photos worth using.</p>
+          <span class="service-card-cta">Check it out <span class="service-card-cta-arrow">→</span></span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SELECTED WORK -->
+  <section class="work" id="work">
+    <div class="container">
+      <p class="section-label">Selected work</p>
+      <div class="work-grid">
+
+        <a href="project-fresh-life.html" class="work-card">
+          <div class="work-thumb">
+            <img src="https://images.squarespace-cdn.com/content/v1/687be35b43e91200aeaa965b/4f109743-f3b7-4f13-806e-b27692c268da/_1130399-min.jpg" alt="Fresh Life Worship church event photography" style="width:100%;height:100%;object-fit:cover;" />
+            <div class="work-overlay">
+              <span class="work-tag">Church</span>
+              <span class="work-tag work-tag-cat">Photography</span>
+            </div>
+          </div>
+          <div class="work-info"><h4>Fresh Life Worship</h4><p>Event photography & coverage</p></div>
+        </a>
+
+        <a href="project-frr.html" class="work-card">
+          <div class="work-thumb">
+            <img src="https://vz-474cf03f-6bc.b-cdn.net/b739adb7-979c-4a5e-b78d-c138fccc5704/thumbnail_ad786402.jpg" alt="First Responder REBOOT — nonprofit video" style="width:100%;height:100%;object-fit:cover;" />
+            <div class="work-overlay">
+              <span class="work-tag">Nonprofit</span>
+              <span class="work-tag work-tag-cat">Video Production</span>
+            </div>
+          </div>
+          <div class="work-info"><h4>First Responder REBOOT Update</h4><p>Nonprofit video series</p></div>
+        </a>
+
+        <a href="project-shinin.html" class="work-card">
+          <div class="work-thumb">
+            <img src="https://vz-474cf03f-6bc.b-cdn.net/06a238ae-2961-4a72-baaf-1008a127cf05/thumbnail_e51e0eb3.jpg" alt="Shinin' lyric video — motion design" style="width:100%;height:100%;object-fit:cover;" />
+            <div class="work-overlay">
+              <span class="work-tag">Lyric Video</span>
+              <span class="work-tag work-tag-cat">Motion Design</span>
+            </div>
+          </div>
+          <div class="work-info"><h4>Shinin' — Lyric Video</h4><p>Kinetic typography & motion</p></div>
+        </a>
+
+        <a href="project-two-kays.html" class="work-card">
+          <div class="work-thumb">
+            <img src="https://images.squarespace-cdn.com/content/v1/687be35b43e91200aeaa965b/b5819081-9bb5-4c36-80b6-2378687c90a6/_1220389-min.jpg" alt="Two Kay's Flower Farm brand video Kalispell MT" style="width:100%;height:100%;object-fit:cover;" />
+            <div class="work-overlay">
+              <span class="work-tag">Small Business</span>
+              <span class="work-tag work-tag-cat">Photography</span>
+            </div>
+          </div>
+          <div class="work-info"><h4>Two Kay's Flower Farm</h4><p>Brand video & photography — Kalispell, MT</p></div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="container about-inner">
+      <div class="about-text">
+        <p class="section-label">About</p>
+        <h2>Hey, I'm Josh —<br />glad you're here.</h2>
+        <p>
+          I'm a video content creator based in Clarksville, TN, and I've had a
+          blast making content for organizations like REBOOT Recovery over the years.
+          That work taught me that good video isn't really about budget —
+          it's about knowing what you're actually trying to say.
+        </p>
+        <p>
+          I work with businesses, churches, and brands who want their content to
+          feel as good as what they're doing. If you care about the work,
+          I promise I'll care about the work too.
+        </p>
+        <a href="#contact" class="btn-secondary">Work with me →</a>
+      </div>
+      <div class="about-image">
+        
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials">
+    <div class="container">
+      <p class="section-label">What people say</p>
+      <div class="testimonials-grid">
+
+        <a href="project-shinin.html#video" class="testimonial-card testimonial-card--linked">
+          <p class="quote">"Working with Josh was a seamless experience. He genuinely invested in understanding what we were trying to accomplish and delivered something we were proud to share."</p>
+          <div class="testimonial-author">
+            <span class="author-name">Joe Vercellino</span>
+            <span class="author-title">The Lion Heart Experience</span>
+          </div>
+          <span class="testimonial-cta">See the work →</span>
+        </a>
+
+        <a href="project-two-kays.html#farm-video" class="testimonial-card testimonial-card--linked">
+          <p class="quote">"Josh brought a level of professionalism and care that we didn't expect. He wasn't just checking boxes — he wanted the final product to actually be good."</p>
+          <div class="testimonial-author">
+            <span class="author-name">Crystal Kay Allison</span>
+            <span class="author-title">Two Kay's Flower Farm</span>
+          </div>
+          <span class="testimonial-cta">See the work →</span>
+        </a>
+
+        <a href="project-mother-chorizos.html" class="testimonial-card testimonial-card--linked">
+          <p class="quote">"Josh has been heading up our social media content for a while now. He has a great eye for images and video and also has a good sense of social media trends — which makes for great and relatable content creation on social media platforms!"</p>
+          <div class="testimonial-author">
+            <span class="author-name">Christian Cabrales</span>
+            <span class="author-title">Mother Chorizo's</span>
+          </div>
+          <span class="testimonial-cta">See the work →</span>
+        </a>
+
+        <div class="testimonial-card">
+          <p class="quote">"Soliz is the best of the best. I've collaborated with him on multiple projects and he has proven to be both highly reliable and skilled, consistently delivering excellent results."</p>
+          <div class="testimonial-author">
+            <span class="author-name">Josh Doyle</span>
+            <span class="author-title">No Longer Nomads</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="container contact-inner">
+      <h2>Let's make<br />something good.</h2>
+      <p>I'd love to hear what you're working on — even if it's still just a rough idea. Shoot me a message and let's figure it out together.</p>
+      <a href="contact.html" class="btn-primary">Get in touch →</a>
+    </div>
+  </section>
+
+  <!-- FOLIOS -->
+  <section class="folios">
+    <div class="folios-grid">
+
+      <a href="sermon-folio.html" class="folio-card">
+        <div class="folio-card-inner">
+          <div class="folio-card-bg folio-card-bg--sermon">
+            <!-- Replace with: <img src="sermon-folio-thumb.jpg" alt="Sermon Series Portfolio" /> -->
+          </div>
+          <div class="folio-card-overlay"></div>
+          <div class="folio-card-content">
+            <span class="folio-card-label">Full Portfolio</span>
+            <h3 class="folio-card-title">Motion Design</h3>
+            <span class="folio-card-cta">View portfolio <span class="folio-arrow">→</span></span>
+          </div>
+        </div>
+      </a>
+
+      <a href="photo-folio.html" class="folio-card">
+        <div class="folio-card-inner">
+          <div class="folio-card-bg folio-card-bg--photo">
+            <!-- Replace with: <img src="photo-folio-thumb.jpg" alt="Photo Portfolio" /> -->
+          </div>
+          <div class="folio-card-overlay"></div>
+          <div class="folio-card-content">
+            <span class="folio-card-label">Full Portfolio</span>
+            <h3 class="folio-card-title">Photography</h3>
+            <span class="folio-card-cta">View portfolio <span class="folio-arrow">→</span></span>
+          </div>
+        </div>
+      </a>
+
+      <a href="video-folio.html" class="folio-card">
+        <div class="folio-card-inner">
+          <div class="folio-card-bg folio-card-bg--video">
+            <!-- Replace with: <img src="video-folio-thumb.jpg" alt="Video Portfolio" /> -->
+          </div>
+          <div class="folio-card-overlay"></div>
+          <div class="folio-card-content">
+            <span class="folio-card-label">Full Portfolio</span>
+            <h3 class="folio-card-title">Video</h3>
+            <span class="folio-card-cta">View portfolio <span class="folio-arrow">→</span></span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-inner">
+      <span class="nav-logo">Josh Soliz</span>
+      <p class="footer-copy">© 2026 · Video Marketing · Clarksville, TN</p>
+      <div class="footer-links">
+        <a href="https://instagram.com/joshuasoliz_" target="_blank">Instagram</a>
+        <a href="https://linkedin.com/in/joshua-soliz/" target="_blank">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thanks! — Josh Soliz</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Sora:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .thankyou {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      padding: 40px 32px;
+    }
+
+    .thankyou::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 60% at 50% 40%, rgba(29,78,138,0.25) 0%, transparent 70%),
+        var(--navy-deep);
+      pointer-events: none;
+    }
+
+    .thankyou-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 520px;
+    }
+
+    .thankyou-check {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      border: 1px solid rgba(77,184,255,0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 32px;
+      animation: fadeUp 0.6s ease 0.1s both;
+    }
+
+    .thankyou-check svg {
+      width: 22px;
+      height: 22px;
+      stroke: var(--blue);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .thankyou-inner h1 {
+      font-size: clamp(36px, 6vw, 64px);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+      margin-bottom: 20px;
+      animation: fadeUp 0.6s ease 0.2s both;
+    }
+
+    .thankyou-inner p {
+      font-size: 17px;
+      color: var(--gray);
+      line-height: 1.75;
+      margin-bottom: 48px;
+      animation: fadeUp 0.6s ease 0.35s both;
+    }
+
+    .thankyou-links {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      animation: fadeUp 0.6s ease 0.5s both;
+    }
+  </style>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SV59LPTN0T"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-SV59LPTN0T');
+  </script>
+  <link rel="icon" href="favicon.webp" type="image/webp" />
+  <link rel="apple-touch-icon" href="favicon.webp" />
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">Josh Soliz</a>
+    <ul class="nav-links">
+      <li><a href="index.html#work">Work</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="contact.html" class="nav-cta">Let's talk</a></li>
+    </ul>
+  </nav>
+
+  <section class="thankyou">
+    <div class="thankyou-inner">
+      <div class="thankyou-check">
+        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+      </div>
+      <h1>Got it —<br />thanks for reaching out!</h1>
+      <p>I'll get back to you within 24 hours. In the meantime, feel free to take a look around.</p>
+      <div class="thankyou-links">
+        <a href="index.html#work" class="btn-primary">See the work →</a>
+        <a href="index.html" class="btn-secondary">Back to home</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-inner">
+      <span class="nav-logo">Josh Soliz</span>
+      <p class="footer-copy">© 2026 · Video Content · Clarksville, TN</p>
+      <div class="footer-links">
+        <a href="https://instagram.com/joshuasoliz_" target="_blank">Instagram</a>
+        <a href="https://linkedin.com/in/joshua-soliz/" target="_blank">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Get in Touch — Josh Soliz</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Sora:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .contact-page {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 140px 0 100px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-page::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background:
+        radial-gradient(ellipse 70% 50% at 50% 0%, rgba(29, 78, 138, 0.3) 0%, transparent 65%),
+        var(--navy-deep);
+      pointer-events: none;
+    }
+
+    .contact-page .container {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .contact-left h1 {
+      font-size: clamp(36px, 5vw, 60px);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
+    }
+
+    .contact-left p {
+      font-size: 16px;
+      color: var(--gray);
+      line-height: 1.8;
+      margin-bottom: 48px;
+      max-width: 380px;
+    }
+
+    .contact-detail {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .contact-detail-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .contact-detail-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--blue);
+    }
+
+    .contact-detail-value {
+      font-size: 15px;
+      color: var(--gray);
+    }
+
+    .contact-detail-value a {
+      color: var(--white);
+      border-bottom: 1px solid rgba(240,244,248,0.2);
+      padding-bottom: 1px;
+      transition: border-color 0.3s ease;
+    }
+
+    .contact-detail-value a:hover {
+      border-color: var(--blue);
+      color: var(--blue);
+    }
+
+    /* Form */
+    .contact-form {
+      background: var(--navy);
+      border: 1px solid var(--gray-dim);
+      border-radius: 10px;
+      padding: 48px 40px;
+    }
+
+    .form-group {
+      margin-bottom: 24px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 8px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      background: var(--navy-deep);
+      border: 1px solid var(--gray-dim);
+      border-radius: 5px;
+      padding: 13px 16px;
+      font-family: var(--font);
+      font-size: 15px;
+      color: var(--white);
+      outline: none;
+      transition: border-color 0.3s ease;
+      -webkit-appearance: none;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: var(--gray-dim);
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: rgba(77, 184, 255, 0.45);
+    }
+
+    /* Custom dropdown */
+    .custom-select {
+      position: relative;
+      user-select: none;
+    }
+
+    .custom-select-trigger {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--navy-deep);
+      border: 1px solid var(--gray-dim);
+      border-radius: 5px;
+      padding: 13px 16px;
+      font-family: var(--font);
+      font-size: 15px;
+      color: var(--gray);
+      cursor: pointer;
+      transition: border-color 0.3s ease;
+    }
+
+    .custom-select.open .custom-select-trigger {
+      border-color: rgba(77, 184, 255, 0.45);
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    .custom-select-trigger:hover {
+      border-color: rgba(77, 184, 255, 0.3);
+    }
+
+    .custom-select-value.selected {
+      color: var(--white);
+    }
+
+    .custom-select-arrow {
+      flex-shrink: 0;
+      transition: transform 0.25s ease;
+    }
+
+    .custom-select.open .custom-select-arrow {
+      transform: rotate(180deg);
+    }
+
+    .custom-select-options {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: var(--navy-mid);
+      border: 1px solid rgba(77, 184, 255, 0.45);
+      border-top: none;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+      list-style: none;
+      z-index: 50;
+      overflow: hidden;
+    }
+
+    .custom-select.open .custom-select-options {
+      display: block;
+    }
+
+    .custom-select-options li {
+      padding: 12px 16px;
+      font-size: 15px;
+      color: var(--gray);
+      cursor: pointer;
+      transition: background 0.2s ease, color 0.2s ease;
+      border-bottom: 1px solid var(--gray-dim);
+    }
+
+    .custom-select-options li:last-child {
+      border-bottom: none;
+    }
+
+    .custom-select-options li:hover {
+      background: var(--blue-glow);
+      color: var(--white);
+    }
+
+    .custom-select-options li.active {
+      color: var(--blue);
+    }
+
+    .form-group textarea {
+      height: 140px;
+      resize: vertical;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .form-submit {
+      width: 100%;
+      background: var(--blue);
+      color: var(--navy-deep);
+      font-family: var(--font);
+      font-size: 15px;
+      font-weight: 600;
+      padding: 15px 24px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      letter-spacing: 0.02em;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      margin-top: 8px;
+    }
+
+    .form-submit:hover {
+      opacity: 0.88;
+      transform: translateY(-1px);
+    }
+
+    @media (max-width: 900px) {
+      .contact-page .container {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+
+      .contact-left p { max-width: 100%; }
+      .form-row { grid-template-columns: 1fr; }
+      .contact-form { padding: 32px 24px; }
+    }
+  </style>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SV59LPTN0T"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-SV59LPTN0T');
+  </script>
+  <link rel="icon" href="favicon.webp" type="image/webp" />
+  <link rel="apple-touch-icon" href="favicon.webp" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-logo">Josh Soliz</a>
+    <ul class="nav-links">
+      <li><a href="index.html#work">Work</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="contact.html" class="nav-cta">Let's talk</a></li>
+    </ul>
+  </nav>
+
+  <!-- CONTACT PAGE -->
+  <section class="contact-page">
+    <div class="container">
+
+      <div class="contact-left">
+        <p class="section-label">Get in touch</p>
+        <h1>Hey! Let's<br />talk.</h1>
+        <p>
+          I'd love to hear what you're working on — even if it's still a little
+          fuzzy. No lengthy forms, no sales pitch. Just a real conversation to
+          figure out if we'd be a good fit. Thanks a bunch for reaching out!
+        </p>
+
+        <div class="contact-detail">
+          <div class="contact-detail-item">
+            <span class="contact-detail-label">Email</span>
+            <span class="contact-detail-value">
+              <a href="mailto:hello@joshsoliz.com">hello@joshsoliz.com</a>
+            </span>
+          </div>
+          <div class="contact-detail-item">
+            <span class="contact-detail-label">Based in</span>
+            <span class="contact-detail-value">Clarksville, TN — working everywhere</span>
+          </div>
+          <div class="contact-detail-item">
+            <span class="contact-detail-label">Typical response</span>
+            <span class="contact-detail-value">Within 24 hours</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form">
+        <!-- Replace action with your form handler (Formspree, Netlify Forms, etc.) -->
+        <form action="https://formspree.io/f/xzdjdkwb" method="POST">
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" placeholder="Your name" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="your@email.com" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="org">Organization / Brand</label>
+            <input type="text" id="org" name="org" placeholder="Company or brand name" />
+          </div>
+
+          <div class="form-group">
+            <label>What are you looking for?</label>
+            <div class="custom-select" id="customSelect">
+              <div class="custom-select-trigger">
+                <span class="custom-select-value">Pick one</span>
+                <svg class="custom-select-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M1 1L6 6L11 1" stroke="#8899aa" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <ul class="custom-select-options">
+                <li data-value="video">Video Production</li>
+                <li data-value="social">Social Content</li>
+                <li data-value="motion">Motion Graphics / Visual Polish</li>
+                <li data-value="retainer">Ongoing / Retainer</li>
+                <li data-value="other">Not sure yet</li>
+              </ul>
+            </div>
+            <input type="hidden" name="type" id="typeInput" />
+          </div>
+
+          <div class="form-group">
+            <label for="message">Tell me about the project</label>
+            <textarea id="message" name="message" placeholder="What are you trying to make? What's the goal? Rough ideas totally work — even just a sentence or two helps!"></textarea>
+          </div>
+
+          <button type="submit" class="form-submit">Send it →</button>
+
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-inner">
+      <span class="nav-logo">Josh Soliz</span>
+      <p class="footer-copy">© 2026 · Video Marketing · Clarksville, TN</p>
+      <div class="footer-links">
+        <a href="https://instagram.com/joshuasoliz_" target="_blank">Instagram</a>
+        <a href="https://linkedin.com/in/joshua-soliz/" target="_blank">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const select    = document.getElementById('customSelect');
+    const trigger   = select.querySelector('.custom-select-trigger');
+    const valueSpan = select.querySelector('.custom-select-value');
+    const options   = select.querySelectorAll('.custom-select-options li');
+    const hidden    = document.getElementById('typeInput');
+
+    trigger.addEventListener('click', () => select.classList.toggle('open'));
+
+    options.forEach(opt => {
+      opt.addEventListener('click', () => {
+        valueSpan.textContent = opt.textContent;
+        valueSpan.classList.add('selected');
+        hidden.value = opt.dataset.value;
+        options.forEach(o => o.classList.remove('active'));
+        opt.classList.add('active');
+        select.classList.remove('open');
+      });
+    });
+
+    document.addEventListener('click', e => {
+      if (!select.contains(e.target)) select.classList.remove('open');
+    });
+  </script>
+</body>
+</html>

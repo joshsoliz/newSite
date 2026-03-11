@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Photo Folio — Josh Soliz</title>
+  <meta name="description" content="Photography portfolio by Josh Soliz — events, brand, church, and portrait photography in Clarksville, TN." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Sora:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+
+    /* ── FULL-SCREEN HERO IMAGE ── */
+    .photo-hero {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .photo-hero-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      /* Replace with: <img src="hero.jpg" /> or background-image */
+      background: linear-gradient(160deg, #0a1828 0%, #0d1f35 50%, #081320 100%);
+      transition: transform 10s cubic-bezier(0.25,0.46,0.45,0.94);
+    }
+
+    .photo-hero:hover .photo-hero-img {
+      transform: scale(1.04);
+    }
+
+    .photo-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(5,8,15,0.2) 0%,
+        transparent 30%,
+        transparent 60%,
+        rgba(5,8,15,0.75) 100%
+      );
+    }
+
+    .photo-hero-text {
+      position: absolute;
+      bottom: 60px;
+      left: 0;
+      right: 0;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 32px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 32px;
+    }
+
+    .photo-hero-text h1 {
+      font-size: clamp(52px, 9vw, 110px);
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 0.9;
+    }
+
+    .photo-hero-text p {
+      max-width: 300px;
+      font-size: 16px;
+      color: var(--gray);
+      line-height: 1.7;
+      text-align: right;
+    }
+
+    .photo-hero-placeholder {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gray-dim);
+      font-size: 13px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* ── EDITORIAL ROWS ── */
+    .photo-editorial {
+      padding: 12px 0 120px;
+    }
+
+    /* Row types */
+    .photo-row {
+      display: grid;
+      gap: 12px;
+      padding: 0 12px;
+      margin-bottom: 12px;
+    }
+
+    /* 1 full */
+    .photo-row.row-full {
+      grid-template-columns: 1fr;
+    }
+
+    .photo-row.row-full .photo-cell {
+      aspect-ratio: 16/7;
+    }
+
+    /* 2 equal */
+    .photo-row.row-half {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .photo-row.row-half .photo-cell {
+      aspect-ratio: 4/3;
+    }
+
+    /* 1 big + 1 small */
+    .photo-row.row-split-lg {
+      grid-template-columns: 2fr 1fr;
+    }
+
+    .photo-row.row-split-lg .photo-cell {
+      aspect-ratio: 3/2;
+    }
+
+    /* 1 small + 1 big */
+    .photo-row.row-split-sm {
+      grid-template-columns: 1fr 2fr;
+    }
+
+    .photo-row.row-split-sm .photo-cell {
+      aspect-ratio: 3/2;
+    }
+
+    /* 3 col */
+    .photo-row.row-thirds {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .photo-row.row-thirds .photo-cell {
+      aspect-ratio: 4/5;
+    }
+
+    /* Portrait + landscape */
+    .photo-row.row-portrait {
+      grid-template-columns: 1fr 1.6fr;
+    }
+
+    .photo-row.row-portrait .photo-cell:first-child {
+      aspect-ratio: 2/3;
+    }
+
+    .photo-row.row-portrait .photo-cell:last-child {
+      aspect-ratio: 3/2;
+      align-self: center;
+    }
+
+    /* ── CELL ── */
+    .photo-cell {
+      position: relative;
+      overflow: hidden;
+      border-radius: 5px;
+      cursor: pointer;
+      background: var(--navy-mid);
+    }
+
+    .photo-cell img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94);
+    }
+
+    .photo-cell:hover img {
+      transform: scale(1.04);
+    }
+
+    .photo-cell-placeholder {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gray-dim);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94);
+    }
+
+    .photo-cell:hover .photo-cell-placeholder {
+      transform: scale(1.04);
+    }
+
+    .photo-cell-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(5,8,15,0);
+      transition: background 0.35s ease;
+      display: flex;
+      align-items: flex-end;
+      padding: 16px;
+    }
+
+    .photo-cell:hover .photo-cell-overlay {
+      background: rgba(5,8,15,0.4);
+    }
+
+    .photo-cell-caption {
+      font-size: 12px;
+      color: rgba(255,255,255,0);
+      transition: color 0.3s ease;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+    }
+
+    .photo-cell:hover .photo-cell-caption {
+      color: rgba(255,255,255,0.75);
+    }
+
+    /* ── SECTION BREAKS ── */
+    .photo-section-header {
+      max-width: var(--max-width);
+      margin: 60px auto 24px;
+      padding: 0 32px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .photo-section-header .section-label {
+      margin: 0;
+      white-space: nowrap;
+    }
+
+    .section-rule {
+      flex: 1;
+      height: 1px;
+      background: var(--gray-dim);
+    }
+
+    /* ── FULLSCREEN VIEWER ── */
+    .viewer {
+      position: fixed;
+      inset: 0;
+      background: #020406;
+      z-index: 999;
+      display: none;
+      flex-direction: column;
+    }
+
+    .viewer.open { display: flex; }
+
+    .viewer-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 32px;
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      z-index: 2;
+      background: linear-gradient(to bottom, rgba(2,4,6,0.8) 0%, transparent 100%);
+    }
+
+    .viewer-close {
+      font-size: 22px;
+      color: var(--gray);
+      cursor: pointer;
+      background: none;
+      border: none;
+      font-family: var(--font);
+      transition: color 0.2s;
+    }
+
+    .viewer-close:hover { color: var(--white); }
+
+    .viewer-counter {
+      font-size: 13px;
+      color: var(--gray);
+      letter-spacing: 0.1em;
+    }
+
+    .viewer-img-wrap {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 60px;
+      min-height: 0;
+    }
+
+    .viewer-img-wrap img {
+      max-height: 82vh;
+      max-width: 90vw;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      border-radius: 3px;
+      display: block;
+    }
+
+    .viewer-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: var(--gray);
+      font-size: 28px;
+      cursor: pointer;
+      padding: 16px;
+      transition: color 0.2s;
+    }
+
+    .viewer-nav:hover { color: var(--white); }
+    .viewer-nav.prev { left: 16px; }
+    .viewer-nav.next { right: 16px; }
+
+    .viewer-caption {
+      padding: 16px 32px 32px;
+      text-align: center;
+      font-size: 13px;
+      color: var(--gray);
+      letter-spacing: 0.04em;
+    }
+
+    /* ── CTA ── */
+    .photo-folio-cta {
+      text-align: center;
+      padding: 48px 0 80px;
+      border-top: 1px solid var(--gray-dim);
+    }
+
+    .photo-folio-cta p {
+      font-size: 17px;
+      color: var(--gray);
+      margin-bottom: 28px;
+    }
+
+    @media (max-width: 900px) {
+      .photo-hero-text { flex-direction: column; align-items: flex-start; }
+      .photo-hero-text p { text-align: left; }
+      .photo-row.row-split-lg,
+      .photo-row.row-split-sm,
+      .photo-row.row-portrait { grid-template-columns: 1fr; }
+      .photo-row.row-thirds    { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 600px) {
+      .photo-row.row-half,
+      .photo-row.row-thirds { grid-template-columns: 1fr; }
+      .photo-row .photo-cell { aspect-ratio: 4/3 !important; }
+      .photo-row.row-full .photo-cell { aspect-ratio: 16/9 !important; }
+    }
+  </style>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SV59LPTN0T"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-SV59LPTN0T');
+  </script>
+  <link rel="icon" href="favicon.webp" type="image/webp" />
+  <link rel="apple-touch-icon" href="favicon.webp" />
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">Josh Soliz</a>
+    <ul class="nav-links">
+      <li><a href="index.html#work">Work</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="contact.html" class="nav-cta">Let's talk</a></li>
+    </ul>
+  </nav>
+
+  <!-- FULL-SCREEN HERO PHOTO -->
+  <div class="photo-hero" data-caption="[ Hero photo caption ]">
+    <div class="photo-hero-img">
+      <img src="https://images.squarespace-cdn.com/content/v1/687be35b43e91200aeaa965b/4f109743-f3b7-4f13-806e-b27692c268da/_1130399-min.jpg" alt="Fresh Life Worship — live music photography" style="width:100%;height:100%;object-fit:cover;display:block;" />
+    </div>
+    <div class="photo-hero-overlay"></div>
+    <div class="photo-hero-text">
+      <h1>Photo<br />Folio.</h1>
+      <p>Real moments, good light. Events, brands, churches — the stuff worth keeping.</p>
+    </div>
+  </div>
+
+  <!-- EDITORIAL BODY -->
+  <div class="photo-editorial">
+
+    <!-- CHURCH -->
+    <div class="photo-section-header">
+      <span class="section-label">Church</span>
+      <div class="section-rule"></div>
+    </div>
+
+    <div class="photo-row row-full">
+      <div class="photo-cell" data-caption="Fresh Life Worship">
+        <img src="https://images.squarespace-cdn.com/content/v1/687be35b43e91200aeaa965b/426c125c-3ad9-4e5b-a45a-5a6e41750dde/_1130393-min.jpg" alt="Fresh Life Worship" />
+        <div class="photo-cell-overlay"><span class="photo-cell-caption">Fresh Life Worship</span></div>
+      </div>
+    </div>
+
+    <div class="photo-row row-portrait">
+      <div class="photo-cell" data-caption="Fresh Life Worship">
+        <img src="https://images.squarespace-cdn.com/content/v1/687be35b43e91200aeaa965b/7c373b3b-d5b0-4464-872b-5a74d1b055d9/P1000125-min.jpg" alt="Fresh Life Worship — production" />
+        <div class="photo-cell-overlay"><span class="photo-cell-caption">Fresh Life Worship</span></div>
+      </div>
+      <div class="photo-cell" data-caption="Fresh Life Worship">
+        <img src="https://images.squarespace-cdn.com/content/v1/687be35b43e91200aeaa965b/4f109743-f3b7-4f13-806e-b27692c268da/_1130399-min.jpg" alt="Fresh Life Worship — live" />
+        <div class="photo-cell-overlay"><span class="photo-cell-caption">Fresh Life Worship</span></div>
+      </div>
+    </div>
+
+    <!-- RESURRECTED CHURCH -->
+    <div class="photo-section-header">
+      <span class="section-label">Resurrected Church</span>
+      <div class="section-rule"></div>
+    </div>
+
+    <div class="photo-row row-full">
+      <div class="photo-cell" data-caption="Resurrected Church — Nashville, TN">
+        <img src="../Images/P1100146.jpg" alt="Resurrected Church Nashville TN — event photography by Josh Soliz" />
+        <div class="photo-cell-overlay"><span class="photo-cell-caption">Resurrected Church</span></div>
+      </div>
+    </div>
+
+    <div class="photo-row row-thirds">
+      <div class="photo-cell" data-caption="Resurrected Church">
+        <img src="../Images/P1100319.jpg" alt="Resurrected Church — church photography" />
+        <div class="photo-cell-overlay"><span class="photo-cell-caption">Resurrected Church</span></div>
+      </div>
+      <div class="photo-cell" data-caption="Resurrected Church">
+        <img src="../Images/P1100480.jpg" alt="Resurrected Church — church event photography" />
+        <div class="photo-cell-overlay"><span class="photo-cell-caption">Resurrected Church</span></div>
+      </div>
+      <div class="photo-cell" data-caption="Resurrected Church">
+        <img src="../Images/P1100564.jpg" alt="Resurrected Church — Nashville church photographer" />
+        <div class="photo-cell-overlay"><span class="photo-cell-caption">Resurrected Church</span></div>
+      </div>
+    </div>
+
+    <div class="photo-row row-split-lg">
+      <div class="photo-cell" data-caption="Resurrected Church">
+        <img src="../Images/P1100694.jpg" alt="Resurrected Church — worship photography Nashville" />
+        <div class="photo-cell-overlay"><span class="photo-cell-caption">Resurrected Church</span></div>
+      </div>
+      <div class="photo-cell" data-caption="Resurrected Church">
+        <img src="../Images/P1100699.jpg" alt="Resurrected Church photography" />
+        <div class="photo-cell-overlay"><span class="photo-cell-caption">Resurrected Church</span></div>
+      </div>
+    </div>
+
+    <div class="photo-row row-thirds">
+      <div class="photo-cell" data-caption="Resurrected Church">
+        <img src="../Images/P1100749.jpg" alt="Resurrected Church" />
+        <div class="photo-cell-overlay"><span class="photo-cell-caption">Resurrected Church</span></div>
+      </div>
+      <div class="photo-cell" data-caption="Resurrected Church">
+        <img src="../Images/P1100769.jpg" alt="Resurrected Church event photography" />
+        <div class="photo-cell-overlay"><span class="photo-cell-caption">Resurrected Church</span></div>
+      </div>
+      <div class="photo-cell" data-caption="Resurrected Church">
+        <img src="../Images/P1100918.jpg" alt="Resurrected Church Nashville" />
+        <div class="photo-cell-overlay"><span class="photo-cell-caption">Resurrected Church</span></div>
+      </div>
+    </div>
+
+    <div class="photo-row row-half">
+      <div class="photo-cell" data-caption="Resurrected Church">
+        <img src="../Images/P1110030.jpg" alt="Resurrected Church photography" />
+        <div class="photo-cell-overlay"><span class="photo-cell-caption">Resurrected Church</span></div>
+      </div>
+      <div class="photo-cell" data-caption="Resurrected Church">
+        <img src="../Images/P1110160.jpg" alt="Resurrected Church" />
+        <div class="photo-cell-overlay"><span class="photo-cell-caption">Resurrected Church</span></div>
+      </div>
+    </div>
+
+    <!-- BRAND -->
+    <div class="photo-section-header">
+      <span class="section-label">Brand</span>
+      <div class="section-rule"></div>
+    </div>
+
+    <div class="photo-row row-half">
+      <div class="photo-cell" data-caption="Two Kay's Flower Farm">
+        <img src="https://images.squarespace-cdn.com/content/v1/687be35b43e91200aeaa965b/b5819081-9bb5-4c36-80b6-2378687c90a6/_1220389-min.jpg" alt="Two Kay's Flower Farm — bouquet" />
+        <div class="photo-cell-overlay"><span class="photo-cell-caption">Two Kay's Flower Farm</span></div>
+      </div>
+      <div class="photo-cell" data-caption="Two Kay's Flower Farm">
+        <img src="https://images.squarespace-cdn.com/content/v1/687be35b43e91200aeaa965b/da2ff289-7d4e-41ba-b11c-b6c7a8c44690/_1220430-min.jpg" alt="Two Kay's Flower Farm — arrangement" />
+        <div class="photo-cell-overlay"><span class="photo-cell-caption">Two Kay's Flower Farm</span></div>
+      </div>
+    </div>
+
+    <div class="photo-row row-thirds">
+      <div class="photo-cell" data-caption="Two Kay's Flower Farm">
+        <img src="https://images.squarespace-cdn.com/content/v1/687be35b43e91200aeaa965b/6dc9ee74-6816-4b22-8cf8-02f1b7668c71/_1220516-min.jpg" alt="Two Kay's Flower Farm — vase" />
+        <div class="photo-cell-overlay"><span class="photo-cell-caption">Two Kay's Flower Farm</span></div>
+      </div>
+      <div class="photo-cell" data-caption="Mother Chorizo's">
+        <img src="https://images.squarespace-cdn.com/content/v1/687be35b43e91200aeaa965b/67eeac0f-5ac9-4823-bcc7-0eeab9cf5024/_1230336-min.jpg" alt="Mother Chorizo's" />
+        <div class="photo-cell-overlay"><span class="photo-cell-caption">Mother Chorizo's</span></div>
+      </div>
+      <div class="photo-cell" data-caption="Mother Chorizo's">
+        <img src="https://images.squarespace-cdn.com/content/v1/687be35b43e91200aeaa965b/cc5abac5-b08b-4caf-aea9-916b34ec5de6/_1230333-min.jpg" alt="Mother Chorizo's — food" />
+        <div class="photo-cell-overlay"><span class="photo-cell-caption">Mother Chorizo's</span></div>
+      </div>
+    </div>
+
+    <div class="photo-row row-split-sm">
+      <div class="photo-cell" data-caption="Mother Chorizo's">
+        <img src="https://images.squarespace-cdn.com/content/v1/687be35b43e91200aeaa965b/db039b72-7511-4513-9ce9-2f75fb5f4f40/_1230378-min.jpg" alt="Mother Chorizo's — pizza" />
+        <div class="photo-cell-overlay"><span class="photo-cell-caption">Mother Chorizo's</span></div>
+      </div>
+      <div class="photo-cell" data-caption="Two Kay's Flower Farm">
+        <img src="https://images.squarespace-cdn.com/content/v1/687be35b43e91200aeaa965b/d8adf4bb-9df6-4c6a-8a7f-b3b989110da9/_1220370-min.jpg" alt="Two Kay's Flower Farm — large arrangement" />
+        <div class="photo-cell-overlay"><span class="photo-cell-caption">Two Kay's Flower Farm</span></div>
+      </div>
+    </div>
+
+    <!-- EVENTS — placeholder until more shots available -->
+    <div class="photo-section-header">
+      <span class="section-label">Events</span>
+      <div class="section-rule"></div>
+    </div>
+
+    <div class="photo-row row-half">
+      <div class="photo-cell" data-caption="[ Event — coming soon ]">
+        <div class="photo-cell-placeholder">[ Coming soon ]</div>
+        <div class="photo-cell-overlay"><span class="photo-cell-caption">[ Event ]</span></div>
+      </div>
+      <div class="photo-cell" data-caption="[ Event — coming soon ]">
+        <div class="photo-cell-placeholder">[ Coming soon ]</div>
+        <div class="photo-cell-overlay"><span class="photo-cell-caption">[ Event ]</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FULLSCREEN VIEWER -->
+  <div class="viewer" id="viewer">
+    <div class="viewer-toolbar">
+      <button class="viewer-close" id="viewerClose">✕</button>
+      <span class="viewer-counter" id="viewerCounter">1 / 1</span>
+    </div>
+    <button class="viewer-nav prev" id="viewerPrev">‹</button>
+    <div class="viewer-img-wrap">
+      <img id="viewerImg" src="" alt="" />
+    </div>
+    <button class="viewer-nav next" id="viewerNext">›</button>
+    <p class="viewer-caption" id="viewerCaption"></p>
+  </div>
+
+  <!-- CTA -->
+  <div class="photo-folio-cta">
+    <p>Need a photographer for your next shoot?</p>
+    <a href="contact.html" class="btn-primary">Let's talk →</a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-inner">
+      <span class="nav-logo">Josh Soliz</span>
+      <p class="footer-copy">© 2026 · Video Content · Clarksville, TN</p>
+      <div class="footer-links">
+        <a href="https://instagram.com/joshuasoliz_" target="_blank">Instagram</a>
+        <a href="https://linkedin.com/in/joshua-soliz/" target="_blank">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Build image list from all cells with real <img> tags
+    const cells = Array.from(document.querySelectorAll('.photo-cell, .photo-hero'));
+    let current = 0;
+
+    const viewer        = document.getElementById('viewer');
+    const viewerImg     = document.getElementById('viewerImg');
+    const viewerCaption = document.getElementById('viewerCaption');
+    const viewerCounter = document.getElementById('viewerCounter');
+
+    function getImgCells() {
+      return cells.filter(c => c.querySelector('img'));
+    }
+
+    function openViewer(index) {
+      const imgCells = getImgCells();
+      if (!imgCells.length) return;
+      current = index;
+      const cell = imgCells[current];
+      viewerImg.src = cell.querySelector('img').src;
+      viewerImg.alt = cell.querySelector('img').alt;
+      viewerCaption.textContent = cell.dataset.caption || '';
+      viewerCounter.textContent = `${current + 1} / ${imgCells.length}`;
+      viewer.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    cells.forEach((cell, i) => {
+      cell.addEventListener('click', () => {
+        const imgCells = getImgCells();
+        const idx = imgCells.indexOf(cell);
+        if (idx > -1) openViewer(idx);
+      });
+    });
+
+    function closeViewer() {
+      viewer.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    document.getElementById('viewerClose').addEventListener('click', closeViewer);
+    viewer.addEventListener('click', e => { if (e.target === viewer) closeViewer(); });
+
+    document.getElementById('viewerPrev').addEventListener('click', () => {
+      const imgCells = getImgCells();
+      openViewer((current - 1 + imgCells.length) % imgCells.length);
+    });
+
+    document.getElementById('viewerNext').addEventListener('click', () => {
+      const imgCells = getImgCells();
+      openViewer((current + 1) % imgCells.length);
+    });
+
+    document.addEventListener('keydown', e => {
+      if (!viewer.classList.contains('open')) return;
+      if (e.key === 'Escape')      closeViewer();
+      if (e.key === 'ArrowLeft')   document.getElementById('viewerPrev').click();
+      if (e.key === 'ArrowRight')  document.getElementById('viewerNext').click();
+    });
+  </script>
+</body>
+</html>
