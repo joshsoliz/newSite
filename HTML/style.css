@@ -171,9 +171,8 @@ nav {
   position: relative;
   z-index: 2;
   max-width: var(--max-width);
-  margin: 0;
-  margin-left: max(32px, calc((100vw - var(--max-width)) / 2));
-  padding: 0 0 0 32px;
+  margin: 0 auto;
+  padding: 0 32px;
   padding-top: 100px;
 }
 
@@ -297,10 +296,7 @@ footer .btn-primary {
 ============================================ */
 .hero-video-bg {
   position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 48%;
+  inset: 0;
   z-index: 0;
   overflow: hidden;
 }
@@ -318,17 +314,7 @@ footer .btn-primary {
 .hero-video-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to right,
-    transparent                0%,
-    transparent                40%,
-    var(--navy-deep)           46%,
-    rgba(5, 8, 15, 0.60)       54%,
-    rgba(5, 8, 15, 0.15)       64%,
-    transparent                74%,
-    transparent                90%,
-    rgba(5, 8, 15, 0.50)       100%
-  );
+  background: rgba(5, 8, 15, 0.62);
   z-index: 1;
 }
 
@@ -345,10 +331,6 @@ footer .btn-primary {
   z-index: 3;
 }
 
-/* Constrain hero text to left half */
-.hero-content > * {
-  max-width: 520px;
-}
 
 /* Watch reel button */
 .hero-reel-link {
@@ -1157,13 +1139,6 @@ footer {
   }
 }
 
-@media (max-width: 768px) {
-  /* Collapse split layout — full width */
-  .hero-video-bg { left: 0; }
-  .hero-video-overlay { background: rgba(5, 8, 15, 0.62); }
-  .hero-content { margin-left: 0; padding: 0 32px; padding-top: 100px; }
-  .hero-content > * { max-width: none; }
-}
 
 @media (max-width: 600px) {
   .hero-content { padding-top: 120px; }
