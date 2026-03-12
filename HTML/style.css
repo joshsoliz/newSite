@@ -308,7 +308,7 @@ footer .btn-primary {
   height: 120%;
   pointer-events: none;
   border: none;
-  filter: saturate(0.85);
+  filter: saturate(0.35);
 }
 
 .hero-video-overlay {
