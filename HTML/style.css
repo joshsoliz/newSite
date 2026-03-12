@@ -171,8 +171,9 @@ nav {
   position: relative;
   z-index: 2;
   max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 0 32px;
+  margin: 0;
+  margin-left: max(32px, calc((100vw - var(--max-width)) / 2));
+  padding: 0 0 0 32px;
   padding-top: 100px;
 }
 
@@ -296,7 +297,10 @@ footer .btn-primary {
 ============================================ */
 .hero-video-bg {
   position: absolute;
-  inset: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 48%;
   z-index: 0;
   overflow: hidden;
 }
@@ -316,14 +320,14 @@ footer .btn-primary {
   inset: 0;
   background: linear-gradient(
     to right,
-    var(--navy-deep)           0%,
-    var(--navy-deep)           32%,
-    rgba(5, 8, 15, 0.88)       46%,
-    rgba(5, 8, 15, 0.30)       60%,
-    rgba(5, 8, 15, 0.05)       75%,
-    transparent                85%,
-    transparent                92%,
-    rgba(5, 8, 15, 0.45)       100%
+    transparent                0%,
+    transparent                40%,
+    var(--navy-deep)           46%,
+    rgba(5, 8, 15, 0.60)       54%,
+    rgba(5, 8, 15, 0.15)       64%,
+    transparent                74%,
+    transparent                90%,
+    rgba(5, 8, 15, 0.50)       100%
   );
   z-index: 1;
 }
@@ -1154,13 +1158,11 @@ footer {
 }
 
 @media (max-width: 768px) {
-  /* Collapse split layout — text goes full width */
-  .hero-video-overlay {
-    background: rgba(5, 8, 15, 0.62);
-  }
-  .hero-content > * {
-    max-width: none;
-  }
+  /* Collapse split layout — full width */
+  .hero-video-bg { left: 0; }
+  .hero-video-overlay { background: rgba(5, 8, 15, 0.62); }
+  .hero-content { margin-left: 0; padding: 0 32px; padding-top: 100px; }
+  .hero-content > * { max-width: none; }
 }
 
 @media (max-width: 600px) {
