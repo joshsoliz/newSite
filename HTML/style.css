@@ -314,7 +314,17 @@ footer .btn-primary {
 .hero-video-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(5, 8, 15, 0.62);
+  background: linear-gradient(
+    to right,
+    var(--navy-deep)           0%,
+    var(--navy-deep)           32%,
+    rgba(5, 8, 15, 0.88)       46%,
+    rgba(5, 8, 15, 0.30)       60%,
+    rgba(5, 8, 15, 0.05)       75%,
+    transparent                85%,
+    transparent                92%,
+    rgba(5, 8, 15, 0.45)       100%
+  );
   z-index: 1;
 }
 
@@ -329,6 +339,11 @@ footer .btn-primary {
 
 .hero-gradient-bottom {
   z-index: 3;
+}
+
+/* Constrain hero text to left half */
+.hero-content > * {
+  max-width: 520px;
 }
 
 /* Watch reel button */
@@ -1135,6 +1150,16 @@ footer {
     flex-direction: column;
     gap: 16px;
     text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Collapse split layout — text goes full width */
+  .hero-video-overlay {
+    background: rgba(5, 8, 15, 0.62);
+  }
+  .hero-content > * {
+    max-width: none;
   }
 }
 
