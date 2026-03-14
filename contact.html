@@ -351,6 +351,7 @@
                 </svg>
               </div>
               <ul class="custom-select-options">
+                <li data-value="quiz">I built a quote — let's talk</li>
                 <li data-value="video">Video Production</li>
                 <li data-value="social">Social Content</li>
                 <li data-value="motion">Motion Graphics / Visual Polish</li>
@@ -409,6 +410,18 @@
     document.addEventListener('click', e => {
       if (!select.contains(e.target)) select.classList.remove('open');
     });
+  </script>
+
+  <script>
+    // Pre-fill message from quote builder
+    (function () {
+      const params = new URLSearchParams(window.location.search);
+      const msg = params.get('message');
+      if (msg) {
+        const textarea = document.getElementById('message');
+        if (textarea) textarea.value = msg;
+      }
+    }());
   </script>
 </body>
 </html>
