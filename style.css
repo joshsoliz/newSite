@@ -308,13 +308,13 @@ footer .btn-primary {
   height: 120%;
   pointer-events: none;
   border: none;
-  filter: saturate(0.85);
+  filter: saturate(0.55);
 }
 
 .hero-video-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(5, 8, 15, 0.62);
+  background: rgba(5, 8, 15, 0.90);
   z-index: 1;
 }
 
