@@ -256,6 +256,35 @@
       transform: translateY(-1px);
     }
 
+    .form-submit:disabled {
+      opacity: 0.55;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .form-feedback {
+      display: none;
+      margin-top: 16px;
+      padding: 14px 18px;
+      border-radius: 5px;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .form-feedback.success {
+      display: block;
+      background: rgba(77, 184, 255, 0.1);
+      border: 1px solid rgba(77, 184, 255, 0.35);
+      color: var(--blue);
+    }
+
+    .form-feedback.error {
+      display: block;
+      background: rgba(255, 100, 100, 0.08);
+      border: 1px solid rgba(255, 100, 100, 0.3);
+      color: #ff8080;
+    }
+
     @media (max-width: 900px) {
       .contact-page .container {
         grid-template-columns: 1fr;
@@ -322,8 +351,7 @@
       </div>
 
       <div class="contact-form">
-        <!-- Replace action with your form handler (Formspree, Netlify Forms, etc.) -->
-        <form action="https://formspree.io/f/xzdjdkwb" method="POST">
+        <form id="contactForm" novalidate>
 
           <div class="form-row">
             <div class="form-group">
@@ -367,7 +395,8 @@
             <textarea id="message" name="message" placeholder="What are you trying to make? What's the goal? Rough ideas totally work — even just a sentence or two helps!"></textarea>
           </div>
 
-          <button type="submit" class="form-submit">Send it →</button>
+          <button type="submit" class="form-submit" id="submitBtn">Send it →</button>
+          <div class="form-feedback" id="formFeedback"></div>
 
         </form>
       </div>
@@ -388,6 +417,7 @@
   </footer>
 
   <script>
+    // Custom select
     const select    = document.getElementById('customSelect');
     const trigger   = select.querySelector('.custom-select-trigger');
     const valueSpan = select.querySelector('.custom-select-value');
@@ -410,9 +440,7 @@
     document.addEventListener('click', e => {
       if (!select.contains(e.target)) select.classList.remove('open');
     });
-  </script>
 
-  <script>
     // Pre-fill message from quote builder
     (function () {
       const params = new URLSearchParams(window.location.search);
@@ -422,6 +450,52 @@
         if (textarea) textarea.value = msg;
       }
     }());
+
+    // Form submission → n8n webhook
+    document.getElementById('contactForm').addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      const btn      = document.getElementById('submitBtn');
+      const feedback = document.getElementById('formFeedback');
+
+      btn.disabled    = true;
+      btn.textContent = 'Sending...';
+      feedback.className = 'form-feedback';
+      feedback.textContent = '';
+
+      const payload = {
+        name:    document.getElementById('name').value.trim(),
+        email:   document.getElementById('email').value.trim(),
+        org:     document.getElementById('org').value.trim(),
+        type:    document.getElementById('typeInput').value,
+        message: document.getElementById('message').value.trim()
+      };
+
+      try {
+        const res = await fetch('https://n8n-production-7aed.up.railway.app/webhook/new-lead', {
+          method:  'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body:    JSON.stringify(payload)
+        });
+
+        if (res.ok) {
+          feedback.className   = 'form-feedback success';
+          feedback.textContent = 'Got it — I\'ll be in touch within 24 hours.';
+          this.reset();
+          valueSpan.textContent = 'Pick one';
+          valueSpan.classList.remove('selected');
+          options.forEach(o => o.classList.remove('active'));
+          btn.textContent = 'Sent';
+        } else {
+          throw new Error('non-2xx response');
+        }
+      } catch (err) {
+        feedback.className   = 'form-feedback error';
+        feedback.textContent = 'Something went wrong. Email me directly at hello@joshsoliz.com.';
+        btn.disabled    = false;
+        btn.textContent = 'Send it →';
+      }
+    });
   </script>
 </body>
 </html>
