@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Josh Soliz — Brand Guidelines</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700;800;900&family=Sora:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy-deep: #05080f;
+      --navy:      #0d1b2a;
+      --navy-mid:  #112240;
+      --blue:      #4db8ff;
+      --blue-glow: rgba(77,184,255,0.12);
+      --blue-dim:  #1e3a5f;
+      --white:     #f0f4f8;
+      --gray:      #8899aa;
+      --gray-dim:  #2a3a4c;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--navy-deep);
+      color: var(--white);
+      font-family: 'Sora', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      padding: 60px 24px 80px;
+    }
+
+    .page {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    /* HEADER */
+    .doc-header {
+      border-bottom: 1px solid var(--gray-dim);
+      padding-bottom: 32px;
+      margin-bottom: 56px;
+    }
+
+    .doc-header h1 {
+      font-family: 'Archivo', sans-serif;
+      font-size: clamp(36px, 6vw, 64px);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      color: var(--white);
+    }
+
+    .doc-header .sub {
+      font-size: 14px;
+      color: var(--gray);
+      margin-top: 10px;
+      letter-spacing: 0.06em;
+    }
+
+    .doc-header .print-btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 24px;
+      background: var(--blue);
+      color: var(--navy-deep);
+      font-family: 'Archivo', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-radius: 4px;
+      cursor: pointer;
+      border: none;
+    }
+
+    .doc-header .print-btn:hover { opacity: 0.85; }
+
+    /* SECTIONS */
+    section { margin-bottom: 56px; }
+
+    .section-label {
+      font-family: 'Archivo', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-family: 'Archivo', sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+
+    h3 {
+      font-family: 'Archivo', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--white);
+      margin: 20px 0 10px;
+    }
+
+    p, li { color: var(--gray); font-size: 15px; line-height: 1.75; }
+
+    ul { padding-left: 20px; }
+    ul li { margin-bottom: 6px; }
+
+    /* TABLE */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      margin-top: 8px;
+    }
+
+    th {
+      font-family: 'Archivo', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--blue);
+      text-align: left;
+      padding: 10px 14px;
+      background: var(--blue-dim);
+      border: 1px solid var(--gray-dim);
+    }
+
+    td {
+      padding: 10px 14px;
+      border: 1px solid var(--gray-dim);
+      color: var(--gray);
+      vertical-align: middle;
+    }
+
+    tr:nth-child(even) td { background: var(--navy-mid); }
+    tr:nth-child(odd) td  { background: var(--navy); }
+
+    /* COLOR SWATCHES */
+    .swatch-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    .swatch {
+      border-radius: 6px;
+      overflow: hidden;
+      border: 1px solid var(--gray-dim);
+    }
+
+    .swatch-color { height: 64px; }
+
+    .swatch-info {
+      padding: 10px 12px;
+      background: var(--navy);
+    }
+
+    .swatch-name {
+      font-family: 'Archivo', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--white);
+    }
+
+    .swatch-hex {
+      font-family: 'Courier New', monospace;
+      font-size: 11px;
+      color: var(--gray);
+      margin-top: 2px;
+    }
+
+    .swatch-use {
+      font-size: 11px;
+      color: var(--gray);
+      margin-top: 4px;
+      line-height: 1.4;
+    }
+
+    /* TYPE SPECIMEN */
+    .type-specimen {
+      background: var(--navy);
+      border: 1px solid var(--gray-dim);
+      border-radius: 6px;
+      padding: 24px 28px;
+      margin-bottom: 16px;
+    }
+
+    .specimen-label {
+      font-size: 11px;
+      color: var(--blue);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .specimen-archivo-xl  { font-family:'Archivo',sans-serif; font-size:48px; font-weight:800; color:var(--white); line-height:1.1; }
+    .specimen-archivo-lg  { font-family:'Archivo',sans-serif; font-size:28px; font-weight:700; color:var(--white); }
+    .specimen-archivo-md  { font-family:'Archivo',sans-serif; font-size:18px; font-weight:600; color:var(--white); }
+    .specimen-sora        { font-family:'Sora',sans-serif;    font-size:16px; font-weight:400; color:var(--gray); line-height:1.75; }
+    .specimen-label-demo  { font-family:'Archivo',sans-serif; font-size:11px; font-weight:600; letter-spacing:0.18em; text-transform:uppercase; color:var(--blue); }
+
+    /* DIVIDER */
+    .divider { border: none; border-top: 1px solid var(--gray-dim); margin: 48px 0; }
+
+    /* TAGLINE BLOCK */
+    .tagline-block {
+      background: var(--navy);
+      border-left: 3px solid var(--blue);
+      border-radius: 0 6px 6px 0;
+      padding: 18px 24px;
+      margin-bottom: 16px;
+    }
+
+    .tagline-block p {
+      font-family: 'Archivo', sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--white);
+      line-height: 1.5;
+    }
+
+    .tagline-block .tagline-note {
+      font-family: 'Sora', sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--gray);
+      margin-top: 6px;
+    }
+
+    /* FOOTER */
+    .doc-footer {
+      margin-top: 80px;
+      padding-top: 24px;
+      border-top: 1px solid var(--gray-dim);
+      text-align: center;
+      font-size: 13px;
+      color: var(--gray);
+    }
+
+    /* PRINT */
+    @media print {
+      body { background: #fff; color: #000; padding: 0; }
+      .print-btn { display: none !important; }
+      .page { max-width: 100%; }
+      .doc-header h1, h2, h3 { color: #000; }
+      p, li, td { color: #333; }
+      th { color: #000; background: #dde; }
+      tr:nth-child(even) td { background: #f4f4f4; }
+      tr:nth-child(odd) td  { background: #fff; }
+      .tagline-block { background: #f4f4f4; border-color: #4db8ff; }
+      .tagline-block p { color: #000; }
+      .swatch-info { background: #f9f9f9; }
+      .swatch-name { color: #000; }
+      .type-specimen { background: #f4f4f4; }
+      .specimen-archivo-xl, .specimen-archivo-lg, .specimen-archivo-md { color: #000; }
+      section { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <header class="doc-header">
+    <p class="section-label">Brand Guidelines</p>
+    <h1>Josh Soliz</h1>
+    <p class="sub">joshsoliz.com &nbsp;·&nbsp; hello@joshsoliz.com &nbsp;·&nbsp; Clarksville, TN</p>
+    <button class="print-btn" onclick="window.print()">Save as PDF / Print</button>
+  </header>
+
+  <!-- IDENTITY -->
+  <section>
+    <p class="section-label">01 — Identity</p>
+    <h2>Brand Overview</h2>
+    <table>
+      <tr><th>Field</th><th>Detail</th></tr>
+      <tr><td>Name</td><td>Josh Soliz</td></tr>
+      <tr><td>Domain</td><td>joshsoliz.com</td></tr>
+      <tr><td>Location</td><td>Clarksville, TN (also Nashville, TN + nationally)</td></tr>
+      <tr><td>Services</td><td>Motion Design, Video Production, Photography</td></tr>
+      <tr><td>Contact</td><td>hello@joshsoliz.com</td></tr>
+    </table>
+  </section>
+
+  <!-- TAGLINES -->
+  <section>
+    <p class="section-label">02 — Messaging</p>
+    <h2>Taglines</h2>
+    <div class="tagline-block">
+      <p>"Video that looks good and sounds like you"</p>
+      <p class="tagline-note">Primary tagline — short, conversational, differentiating</p>
+    </div>
+    <div class="tagline-block">
+      <p>"I help businesses and brands create content that's actually worth watching — without losing what makes 'em feel like them"</p>
+      <p class="tagline-note">Extended tagline — for bio sections and about pages</p>
+    </div>
+
+    <h3>Brand Personality</h3>
+    <ul>
+      <li>Professional yet approachable — clear, not corporate</li>
+      <li>Creative-first, storytelling-focused</li>
+      <li>Client-centered — preserving the client's identity is a key differentiator</li>
+      <li>Modern and refined — minimal aesthetic with intentional accents</li>
+      <li>Multi-disciplinary — video + motion + photography under one voice</li>
+    </ul>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- COLOR PALETTE -->
+  <section>
+    <p class="section-label">03 — Color</p>
+    <h2>Color Palette</h2>
+    <p style="margin-bottom:20px;">Dark navy base + precise blue accent. No warm tones. No gradients except for subtle overlays.</p>
+
+    <div class="swatch-grid">
+      <div class="swatch">
+        <div class="swatch-color" style="background:#05080f;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Navy Deep</div>
+          <div class="swatch-hex">#05080f</div>
+          <div class="swatch-use">Main background, deep overlays</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#0d1b2a;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Navy</div>
+          <div class="swatch-hex">#0d1b2a</div>
+          <div class="swatch-use">Card backgrounds, secondary surfaces</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#112240;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Navy Mid</div>
+          <div class="swatch-hex">#112240</div>
+          <div class="swatch-use">Hover states, modals</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#4db8ff;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Blue Accent</div>
+          <div class="swatch-hex">#4db8ff</div>
+          <div class="swatch-use">Primary CTAs, labels, highlights</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:rgba(77,184,255,0.12); border:1px solid #2a3a4c;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Blue Glow</div>
+          <div class="swatch-hex">rgba(77,184,255,0.12)</div>
+          <div class="swatch-use">Decorative glows, bg effects</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#1e3a5f;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Blue Dim</div>
+          <div class="swatch-hex">#1e3a5f</div>
+          <div class="swatch-use">Dimmed accents, dark overlays</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#f0f4f8;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">White</div>
+          <div class="swatch-hex">#f0f4f8</div>
+          <div class="swatch-use">Primary text, headings</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#8899aa;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Gray</div>
+          <div class="swatch-hex">#8899aa</div>
+          <div class="swatch-use">Body copy, secondary text</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#2a3a4c;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Gray Dim</div>
+          <div class="swatch-hex">#2a3a4c</div>
+          <div class="swatch-use">Borders, dividers, tertiary text</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- TYPOGRAPHY -->
+  <section>
+    <p class="section-label">04 — Typography</p>
+    <h2>Type System</h2>
+
+    <div class="type-specimen">
+      <div class="specimen-label">Archivo — Display / Headings</div>
+      <div class="specimen-archivo-xl">Archivo</div>
+      <div style="margin-top:8px; font-family:'Archivo',sans-serif; font-size:13px; color:var(--gray);">
+        Weights: 300 400 500 600 <strong style="color:var(--white);">700</strong> <strong style="color:var(--white); font-weight:800;">800</strong> <strong style="color:var(--white); font-weight:900;">900</strong>
+      </div>
+    </div>
+
+    <div class="type-specimen">
+      <div class="specimen-label">Sora — Body / UI</div>
+      <div class="specimen-sora" style="font-size:20px;">The quick brown fox jumps over the lazy dog.</div>
+      <div style="margin-top:8px; font-family:'Sora',sans-serif; font-size:13px; color:var(--gray);">
+        Weights: 300 400 <strong style="color:var(--white); font-weight:500;">500</strong> <strong style="color:var(--white); font-weight:600;">600</strong>
+      </div>
+    </div>
+
+    <div class="type-specimen">
+      <div class="specimen-label">Label / Tag Style</div>
+      <div class="specimen-label-demo">Section Label &nbsp;·&nbsp; Motion Design &nbsp;·&nbsp; 01 — Identity</div>
+    </div>
+
+    <h3>Size Scale</h3>
+    <table>
+      <tr><th>Element</th><th>Size / Rule</th></tr>
+      <tr><td>Hero Headline</td><td>clamp(44px, 7vw, 88px) — Archivo 800</td></tr>
+      <tr><td>Section Headings</td><td>clamp(26px, 4vw, 42px) — Archivo 700</td></tr>
+      <tr><td>Sub-headings</td><td>18–22px — Archivo 600</td></tr>
+      <tr><td>Body Text</td><td>16px base (15–20px range) — Sora 400</td></tr>
+      <tr><td>Labels / Tags</td><td>11–12px, UPPERCASE, letter-spacing 0.12–0.18em — Archivo 600</td></tr>
+    </table>
+
+    <h3>Rules</h3>
+    <ul>
+      <li>Labels and tags: always uppercase + letter-spaced in blue accent</li>
+      <li>Never mix with decorative or serif fonts</li>
+      <li>Blue accent used for eyebrow text above headings</li>
+    </ul>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- LAYOUT -->
+  <section>
+    <p class="section-label">05 — Layout</p>
+    <h2>Spacing & Grid</h2>
+    <table>
+      <tr><th>Property</th><th>Value</th></tr>
+      <tr><td>Max content width</td><td>1140px</td></tr>
+      <tr><td>Container padding</td><td>32px horizontal</td></tr>
+      <tr><td>Section padding</td><td>~100px vertical</td></tr>
+      <tr><td>Service card gap</td><td>2px</td></tr>
+      <tr><td>Work card gap</td><td>24px</td></tr>
+      <tr><td>Border radius</td><td>4–6px (buttons and cards)</td></tr>
+      <tr><td>Work thumbnail ratio</td><td>16:9</td></tr>
+    </table>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- COMPONENTS -->
+  <section>
+    <p class="section-label">06 — Components</p>
+    <h2>UI Patterns</h2>
+
+    <h3>Buttons</h3>
+    <ul>
+      <li><strong>Primary:</strong> Blue bg (#4db8ff), navy text, 14px bold, 4px radius, 14px 32px padding</li>
+      <li><strong>Secondary:</strong> Blue text with bottom border only, no background</li>
+      <li><strong>Ghost:</strong> Transparent with subtle border, white text</li>
+    </ul>
+
+    <h3>Cards</h3>
+    <ul>
+      <li>Navy background (#0d1b2a), subtle gray-dim borders</li>
+      <li>Hover: slightly darker + scale(1.02), smooth transition</li>
+      <li>Work cards: 16:9 image with dark gradient overlay at bottom, tag chips, title beneath</li>
+    </ul>
+
+    <h3>Navigation</h3>
+    <ul>
+      <li>Fixed header with gradient + backdrop blur (blur 8px)</li>
+      <li>Logo: "Josh Soliz" — Archivo 18px 600 weight</li>
+      <li>CTA in nav: blue border button, 4px radius</li>
+      <li>Background opacity increases after 60px scroll</li>
+    </ul>
+
+    <h3>Section Labels</h3>
+    <ul>
+      <li>11px, Archivo 600, letter-spacing 0.18em, uppercase, blue accent color</li>
+      <li>Always appears above section heading with 24px margin-bottom</li>
+    </ul>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ANIMATION -->
+  <section>
+    <p class="section-label">07 — Motion</p>
+    <h2>Animation & Transitions</h2>
+    <ul>
+      <li>Fade-up on load: 0.8s ease, staggered delays (0.2s → 1.0s) for hero elements</li>
+      <li>Scroll-triggered reveals via Intersection Observer</li>
+      <li>Hover transitions: color, opacity, scale — always smooth (0.3s ease)</li>
+      <li>Smooth scrolling enabled site-wide</li>
+      <li>No abrupt or jarring animations — everything intentional and restrained</li>
+    </ul>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="doc-footer">
+    joshsoliz.com &nbsp;·&nbsp; hello@joshsoliz.com &nbsp;·&nbsp; Clarksville, TN
+  </footer>
+
+</div>
+</body>
+</html>
