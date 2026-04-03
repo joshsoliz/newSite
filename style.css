@@ -871,6 +871,71 @@ footer .btn-primary {
   padding: 16px 40px;
 }
 
+.contact-inline-form {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.contact-inline-form input[type="email"] {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 8px;
+  color: var(--white);
+  font-family: inherit;
+  font-size: 15px;
+  padding: 14px 20px;
+  width: 280px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.contact-inline-form input[type="email"]::placeholder {
+  color: var(--gray);
+}
+
+.contact-inline-form input[type="email"]:focus {
+  border-color: var(--blue);
+}
+
+.contact-inline-form button {
+  background: var(--blue);
+  border: none;
+  border-radius: 8px;
+  color: var(--navy-deep);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 14px 28px;
+  transition: opacity 0.2s;
+}
+
+.contact-inline-form button:hover {
+  opacity: 0.85;
+}
+
+.contact-inline-alt {
+  font-size: 14px;
+  margin-bottom: 0;
+}
+
+.contact-inline-alt a {
+  color: var(--blue);
+  text-decoration: none;
+}
+
+.contact-inline-feedback {
+  font-size: 14px;
+  margin-top: 12px;
+  min-height: 20px;
+}
+
+.contact-inline-feedback.success { color: #4db8ff; }
+.contact-inline-feedback.error   { color: #ff6b6b; }
+
 /* ============================================
    FOLIOS
 ============================================ */

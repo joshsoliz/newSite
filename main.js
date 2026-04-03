@@ -143,3 +143,37 @@ window.addEventListener('scroll', () => {
     });
   });
 }());
+
+// ── INLINE CONTACT FORM ──
+(function () {
+  const form     = document.getElementById('inlineContactForm');
+  const feedback = document.getElementById('inlineFormFeedback');
+  if (!form) return;
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const email = form.querySelector('input[type="email"]').value.trim();
+    if (!email) return;
+
+    feedback.className = 'contact-inline-feedback';
+    feedback.textContent = '';
+
+    try {
+      const res = await fetch('https://n8n-production-7aed.up.railway.app/webhook/new-lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, source: 'homepage-inline' })
+      });
+      if (res.ok) {
+        feedback.className = 'contact-inline-feedback success';
+        feedback.textContent = "Got it. I'll be in touch soon.";
+        form.reset();
+      } else {
+        throw new Error('bad response');
+      }
+    } catch {
+      feedback.className = 'contact-inline-feedback error';
+      feedback.textContent = 'Something went wrong. Try emailing me directly at hello@joshsoliz.com';
+    }
+  });
+}());
