@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Josh Soliz — Business Cards</title>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #0c0c0c;
+      color: #8899aa;
+      font-family: 'Archivo', sans-serif;
+      padding: 64px 72px;
+    }
+
+    .page-title {
+      font-size: 10px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: #444;
+      margin-bottom: 6px;
+    }
+    .page-sub {
+      font-size: 10px;
+      color: #2a2a2a;
+      font-weight: 300;
+      margin-bottom: 60px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 52px;
+      max-width: 980px;
+    }
+
+    .card-wrap { display: flex; flex-direction: column; gap: 14px; }
+    .card-label { font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase; color: #333; }
+
+    canvas {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .btn {
+      align-self: flex-start;
+      background: transparent;
+      border: 1px solid #222;
+      color: #444;
+      font-family: 'Archivo', sans-serif;
+      font-size: 9px;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 10px 20px;
+      cursor: pointer;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn:hover { border-color: #4db8ff; color: #4db8ff; }
+
+    .note {
+      margin-top: 60px;
+      padding-top: 32px;
+      border-top: 1px solid #1a1a1a;
+      font-size: 10px;
+      font-weight: 300;
+      color: #333;
+      line-height: 2.2;
+      max-width: 640px;
+    }
+    .note strong { color: #555; font-weight: 400; }
+    .note code { color: #4db8ff; font-size: 9px; }
+  </style>
+</head>
+<body>
+
+  <p class="page-title">Josh Soliz — Business Cards</p>
+  <p class="page-sub">2100 × 1200 px · 600 DPI · PNG export</p>
+
+  <div class="grid">
+    <div class="card-wrap">
+      <span class="card-label">01 — Dark / Info</span>
+      <canvas id="c1" width="2100" height="1200"></canvas>
+      <button class="btn" onclick="dl('c1','joshsoliz_card_dark_info.png')">↓ Download PNG</button>
+    </div>
+    <div class="card-wrap">
+      <span class="card-label">02 — Dark / Back</span>
+      <canvas id="c2" width="2100" height="1200"></canvas>
+      <button class="btn" onclick="dl('c2','joshsoliz_card_dark_back.png')">↓ Download PNG</button>
+    </div>
+    <div class="card-wrap">
+      <span class="card-label">03 — Light / Info</span>
+      <canvas id="c3" width="2100" height="1200"></canvas>
+      <button class="btn" onclick="dl('c3','joshsoliz_card_light_info.png')">↓ Download PNG</button>
+    </div>
+    <div class="card-wrap">
+      <span class="card-label">04 — Navy / Back</span>
+      <canvas id="c4" width="2100" height="1200"></canvas>
+      <button class="btn" onclick="dl('c4','joshsoliz_card_navy_back.png')">↓ Download PNG</button>
+    </div>
+  </div>
+
+  <div class="note">
+    <strong>Update contact info:</strong> Edit the <code>INFO</code> object at the top of the script before downloading.<br/>
+    <strong>Print specs:</strong> 600 DPI · 3.5" × 2" trim · No bleed — check with your printer if a bleed template is needed.<br/>
+    <strong>Pairs:</strong> Dark info (01) + Dark back (02), or Light info (03) + Navy back (04).
+  </div>
+
+  <script>
+    // ── EDIT CONTACT INFO ──────────────────────────────────────
+    const INFO = {
+      name:    'Josh Soliz',
+      title:   'Video Marketer',
+      email:   'hello@joshsoliz.com',
+      phone:   '(406) 405-1312',
+      website: 'joshsoliz.com',
+    };
+    // ──────────────────────────────────────────────────────────
+
+    const W = 2100, H = 1200;
+
+    const CLR = {
+      navyDeep: '#05080f',
+      navy:     '#0d1b2a',
+      white:    '#f0f4f8',
+      gray:     '#8899aa',
+      grayDim:  '#2a3a4c',
+      blue:     '#4db8ff',
+      lightRule:'#c4d0db',
+      lightGray:'#6a7f92',
+    };
+
+    async function init() {
+      await Promise.all([
+        document.fonts.load('900 1px Archivo'),
+        document.fonts.load('300 1px Archivo'),
+      ]);
+      infoCard(document.getElementById('c1'), 'dark');
+      backCard(document.getElementById('c2'), CLR.navyDeep);
+      infoCard(document.getElementById('c3'), 'light');
+      backCard(document.getElementById('c4'), CLR.navy);
+    }
+
+    // ── Info card ──────────────────────────────────────────────
+    function infoCard(canvas, theme) {
+      const ctx  = canvas.getContext('2d');
+      const dark = theme === 'dark';
+
+      const bg  = dark ? CLR.navyDeep : CLR.white;
+      const fg  = dark ? CLR.white    : CLR.navyDeep;
+      const sec = dark ? CLR.gray     : CLR.lightGray;
+      const rul = dark ? CLR.grayDim  : CLR.lightRule;
+      const PAD = 168;
+
+      // Background
+      ctx.fillStyle = bg;
+      ctx.fillRect(0, 0, W, H);
+
+      // Name
+      font(ctx, 900, 100, -1.5);
+      ctx.fillStyle = fg;
+      ctx.fillText(INFO.name, PAD, 288);
+
+      // Title
+      font(ctx, 300, 50, 0.5);
+      ctx.fillStyle = sec;
+      ctx.fillText(INFO.title, PAD, 368);
+
+      // Rule 1
+      rect(ctx, rul, PAD, 428, W - PAD * 2, 2);
+
+      // Contact block — centered between rule 1 (y=430) and separator (y=827)
+      // 3 lines × 44px font, 64px leading → visual block ~170px tall
+      // first baseline = center_of_space - half_block + cap_height = 628 - 85 + 33 = 576
+      font(ctx, 300, 44, 0);
+      ctx.fillStyle = sec;
+      ctx.fillText(INFO.email,   PAD, 576);
+      ctx.fillText(INFO.phone,   PAD, 640);
+      ctx.fillText(INFO.website, PAD, 704);
+
+      // ── Bottom block (anchored, no tagline — moved to right side) ──
+      const logoSz = 68;
+      const ruleH  = 3;
+      const ruleY  = H - PAD - 10;          // 1022
+      const logoB  = ruleY - 14;            // 1008
+      const sepY   = logoB - logoSz - 60;   // 880
+
+      // Separator rule
+      rect(ctx, rul, PAD, sepY, W - PAD * 2, 2);
+
+      // Logo name
+      font(ctx, 900, logoSz, -1);
+      ctx.fillStyle = fg;
+      ctx.fillText('JOSH SOLIZ', PAD, logoB);
+      const logoW = ctx.measureText('JOSH SOLIZ').width;
+
+      // Blue accent rule
+      ctx.fillStyle = CLR.blue;
+      ctx.fillRect(PAD, ruleY, logoW, ruleH);
+
+      // ── Rotated tagline — right side, -90deg ──
+      const rotTag = 'MOTION DESIGN  /  FILM  /  PHOTO';
+      const rotSz  = 22;  // 35% smaller than 34
+      font(ctx, 300, rotSz, 4);
+      ctx.fillStyle = sec;
+      const rotW = ctx.measureText(rotTag).width;
+      ctx.save();
+      ctx.translate(W - PAD, H / 2);
+      ctx.rotate(-Math.PI / 2);
+      ctx.fillText(rotTag, -rotW / 2, 0);
+      ctx.restore();
+    }
+
+    // ── Back / mark card ──────────────────────────────────────
+    function backCard(canvas, bg) {
+      const ctx = canvas.getContext('2d');
+      const PAD = 168;
+
+      ctx.fillStyle = bg;
+      ctx.fillRect(0, 0, W, H);
+
+      const nameSz = 118;
+      const tagSz  = 44;
+      const ruleH  = 4;
+
+      // Anchor bottom-right
+      const tagB   = H - PAD;                        // 1032
+      const ruleY  = tagB - tagSz - 28 - ruleH;      // ~952
+      const nameB  = ruleY - 16;                     // ~936
+
+      // Measure for right-align
+      font(ctx, 900, nameSz, -2);
+      const nameW = ctx.measureText('JOSH SOLIZ').width;
+      const nameX = W - PAD - nameW;
+
+      font(ctx, 300, tagSz, 6);
+      const tagW = ctx.measureText('MOTION DESIGN  /  FILM  /  PHOTO').width;
+      const tagX = W - PAD - tagW;
+
+      // Name
+      font(ctx, 900, nameSz, -2);
+      ctx.fillStyle = CLR.white;
+      ctx.fillText('JOSH SOLIZ', nameX, nameB);
+
+      // Blue rule
+      ctx.fillStyle = CLR.blue;
+      ctx.fillRect(nameX, ruleY, nameW, ruleH);
+
+      // Tagline
+      font(ctx, 300, tagSz, 6);
+      ctx.fillStyle = CLR.gray;
+      ctx.fillText('MOTION DESIGN  /  FILM  /  PHOTO', tagX, tagB);
+    }
+
+    // ── Helpers ───────────────────────────────────────────────
+    function font(ctx, weight, size, lsPx) {
+      ctx.font = `${weight} ${size}px Archivo`;
+      if ('letterSpacing' in ctx) ctx.letterSpacing = `${lsPx}px`;
+    }
+
+    function rect(ctx, color, x, y, w, h) {
+      ctx.fillStyle = color;
+      ctx.fillRect(x, y, w, h);
+    }
+
+    function dl(id, filename) {
+      const a = document.createElement('a');
+      a.download = filename;
+      a.href = document.getElementById(id).toDataURL('image/png');
+      a.click();
+    }
+
+    init();
+  </script>
+</body>
+</html>
