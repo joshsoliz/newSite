@@ -577,15 +577,11 @@ footer .btn-primary {
   padding: 100px 0;
 }
 
-.work-section-header {
-  margin-bottom: 24px;
-}
 
 .work-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
-  padding: 0 12px;
+  gap: 24px;
 }
 
 .work-card {
@@ -596,7 +592,7 @@ footer .btn-primary {
 
 .work-thumb {
   width: 100%;
-  aspect-ratio: 4/3;
+  aspect-ratio: 16/9;
   border-radius: 6px;
   background-color: var(--navy-mid);
   background-size: cover;
@@ -650,78 +646,11 @@ footer .btn-primary {
 .work-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(5,8,15,0.75) 0%, rgba(5,8,15,0.25) 50%, transparent 100%);
+  background: linear-gradient(to top, rgba(5,8,15,0.7) 0%, transparent 50%);
   padding: 20px;
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  z-index: 1;
-  transition: background 0.3s ease;
-}
-
-.work-card:hover .work-overlay {
-  background: linear-gradient(to top, rgba(5,8,15,0.88) 0%, rgba(5,8,15,0.45) 60%, rgba(5,8,15,0.2) 100%);
-}
-
-/* Name overlay — centered on image */
-.work-name-overlay {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  z-index: 2;
-  pointer-events: none;
-}
-
-.work-name {
-  font-family: var(--font);
-  font-size: clamp(18px, 2.5vw, 28px);
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  color: var(--white);
-  text-align: center;
-  text-shadow: 0 2px 12px rgba(0,0,0,0.6);
-  padding: 0 24px;
-  line-height: 1.2;
-}
-
-.work-view-cta {
-  font-family: var(--font);
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  color: var(--blue);
-  opacity: 0;
-  transform: translateY(8px);
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-.work-card:hover .work-view-cta {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Video / Motion badge */
-.work-video-badge {
-  position: absolute;
-  top: 14px;
-  right: 14px;
-  z-index: 3;
-  font-family: var(--font);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--white);
-  background: rgba(5, 8, 15, 0.65);
-  border: 1px solid rgba(255,255,255,0.18);
-  padding: 4px 10px;
-  border-radius: 100px;
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
 }
 
 /* Secondary category tag — right-aligned, subtle */
@@ -744,6 +673,21 @@ footer .btn-primary {
   border: 1px solid rgba(77, 184, 255, 0.2);
 }
 
+.work-info {
+  padding: 16px 4px 8px;
+}
+
+.work-info h4 {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 4px;
+}
+
+.work-info p {
+  font-size: 14px;
+  color: var(--gray);
+}
 
 /* ============================================
    ABOUT
@@ -1274,8 +1218,7 @@ footer {
   /* Work grid — full width cards on mobile */
   .work-grid {
     grid-template-columns: 1fr;
-    gap: 12px;
-    padding: 0 12px;
+    gap: 32px;
   }
 
   .work-thumb {
