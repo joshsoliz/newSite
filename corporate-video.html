@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Corporate Video Production — Josh Soliz Media | Middle Tennessee</title>
+  <meta name="description" content="Corporate event coverage, brand films, and training video in Middle Tennessee. Single-day event coverage from $1,500. Serving Clarksville, Nashville, and surrounding areas." />
+  <link rel="canonical" href="https://joshsoliz.com/corporate-video.html" />
+
+  <!-- Service Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Corporate Video Production",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "Josh Soliz Media",
+      "url": "https://joshsoliz.com",
+      "email": "hello@joshsoliz.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Clarksville",
+        "addressRegion": "TN",
+        "addressCountry": "US"
+      },
+      "areaServed": ["Clarksville, TN", "Nashville, TN", "Middle Tennessee"]
+    },
+    "description": "Corporate event coverage, brand films, training video, and event highlight reels for businesses in Middle Tennessee. Josh Soliz covered the SCADA Academy conference at Renaissance Nashville in 2024.",
+    "serviceType": "Corporate Video Production",
+    "offers": {
+      "@type": "AggregateOffer",
+      "lowPrice": "1500",
+      "highPrice": "5500",
+      "priceCurrency": "USD"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Corporate Video Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Single-day event coverage",
+            "description": "1 camera, edited highlight reel"
+          },
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "minPrice": "1500",
+            "maxPrice": "2500",
+            "priceCurrency": "USD"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Brand film",
+            "description": "Half-day shoot, full edit"
+          },
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "minPrice": "3000",
+            "maxPrice": "5000",
+            "priceCurrency": "USD"
+          }
+        }
+      ]
+    },
+    "mainEntityOfPage": {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Do you handle audio at conferences and events?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. For conference and event work, Josh mixes from the house audio board when available and uses lavalier mics for interviews and smaller sessions. He brings his own audio kit as backup."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can you film and deliver a highlight reel on the same day?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For events where same-day delivery is a priority, Josh can produce a rough highlight reel on-site — typically a 60–90 second cut. Full color-graded and music-licensed delivery follows within 5 business days."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you bring your own lighting and equipment?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Josh operates a full production rig — Panasonic G85 with SmallRig cinema cage, Tilta matte box, follow focus, V-mount power, and FEELWORLD monitor. Lighting and audio are included in every quote. He does not require a studio or venue-provided gear."
+          }
+        }
+      ]
+    }
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Sora:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── SERVICE PAGE LAYOUT ── */
+    .service-hero {
+      padding: 160px 0 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 50% at 50% 0%, rgba(29, 78, 138, 0.3) 0%, transparent 65%),
+        var(--navy-deep);
+      pointer-events: none;
+    }
+
+    .service-hero .container {
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
+    }
+
+    .service-hero h1 {
+      font-size: clamp(36px, 5.5vw, 64px);
+      font-weight: 700;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      margin-bottom: 24px;
+    }
+
+    .service-hero-lead {
+      font-size: clamp(16px, 2vw, 19px);
+      color: var(--gray);
+      line-height: 1.75;
+      margin-bottom: 40px;
+      max-width: 640px;
+    }
+
+    /* ── CONTENT SECTIONS ── */
+    .service-section {
+      padding: 80px 0;
+      border-top: 1px solid var(--gray-dim);
+    }
+
+    .service-section h2 {
+      font-size: clamp(24px, 3.5vw, 36px);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 32px;
+    }
+
+    .service-section p {
+      font-size: 16px;
+      color: var(--gray);
+      line-height: 1.8;
+      margin-bottom: 20px;
+      max-width: 680px;
+    }
+
+    /* ── TYPES OF WORK ── */
+    .types-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2px;
+      background: var(--gray-dim);
+      border: 1px solid var(--gray-dim);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .type-card {
+      background: var(--navy);
+      padding: 40px 36px;
+      transition: background var(--transition);
+    }
+
+    .type-card:hover {
+      background: var(--navy-mid);
+    }
+
+    .type-num {
+      display: block;
+      font-family: var(--font);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      color: var(--blue);
+      margin-bottom: 16px;
+    }
+
+    .type-card h3 {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+
+    .type-card p {
+      font-size: 15px;
+      color: var(--gray);
+      line-height: 1.7;
+      max-width: none;
+      margin: 0;
+    }
+
+    /* ── WHAT CLIENTS GET ── */
+    .deliverables-cols {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: var(--gray-dim);
+      border: 1px solid var(--gray-dim);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .deliverables-col {
+      background: var(--navy);
+      padding: 36px 32px;
+    }
+
+    .deliverables-col h3 {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--gray-dim);
+    }
+
+    .deliverables-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .deliverables-col ul li {
+      font-size: 14px;
+      color: var(--gray);
+      line-height: 1.6;
+      padding-left: 16px;
+      position: relative;
+    }
+
+    .deliverables-col ul li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--blue);
+      font-size: 12px;
+    }
+
+    /* ── PAST WORK ── */
+    .past-work-card {
+      background: var(--navy);
+      border: 1px solid var(--gray-dim);
+      border-left: 3px solid var(--blue);
+      border-radius: 0 8px 8px 0;
+      padding: 36px 40px;
+      max-width: 720px;
+    }
+
+    .past-work-card h3 {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+
+    .past-work-card p {
+      font-size: 15px;
+      color: var(--gray);
+      line-height: 1.75;
+      max-width: none;
+      margin: 0;
+    }
+
+    /* ── PRICING TABLE ── */
+    .pricing-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .pricing-table th {
+      font-family: var(--font);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--blue);
+      text-align: left;
+      padding: 14px 20px;
+      border-bottom: 1px solid var(--gray-dim);
+      background: var(--navy-mid);
+    }
+
+    .pricing-table td {
+      font-size: 15px;
+      color: var(--gray);
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--gray-dim);
+      vertical-align: top;
+    }
+
+    .pricing-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .pricing-table td:first-child {
+      color: var(--white);
+      font-weight: 500;
+    }
+
+    .pricing-table td:last-child {
+      font-family: var(--font);
+      font-weight: 600;
+      color: var(--blue);
+      white-space: nowrap;
+    }
+
+    .pricing-table tbody tr {
+      background: var(--navy);
+      transition: background var(--transition);
+    }
+
+    .pricing-table tbody tr:hover {
+      background: var(--navy-mid);
+    }
+
+    .pricing-note {
+      font-size: 14px;
+      color: var(--gray);
+      margin-top: 16px;
+      line-height: 1.7;
+    }
+
+    /* ── FAQ ── */
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border: 1px solid var(--gray-dim);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--gray-dim);
+      background: var(--navy);
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-question {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--white);
+      padding: 24px 28px 16px;
+      font-family: var(--font);
+    }
+
+    .faq-answer {
+      font-size: 15px;
+      color: var(--gray);
+      line-height: 1.75;
+      padding: 0 28px 24px;
+    }
+
+    /* ── CTA ── */
+    .service-cta {
+      padding: 120px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      border-top: 1px solid var(--gray-dim);
+    }
+
+    .service-cta::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(77, 184, 255, 0.05) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .service-cta-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .service-cta h2 {
+      font-size: clamp(32px, 5vw, 56px);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
+    }
+
+    .service-cta p {
+      font-size: 17px;
+      color: var(--gray);
+      max-width: 520px;
+      margin: 0 auto 40px;
+      line-height: 1.7;
+    }
+
+    .service-cta-btns {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 28px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 900px) {
+      .types-grid { grid-template-columns: 1fr; }
+      .deliverables-cols { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 600px) {
+      .service-hero { padding: 140px 0 60px; }
+      .faq-question { padding: 20px 20px 12px; }
+      .faq-answer { padding: 0 20px 20px; }
+      .type-card { padding: 32px 24px; }
+      .deliverables-col { padding: 28px 24px; }
+    }
+  </style>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SV59LPTN0T"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-SV59LPTN0T');
+  </script>
+  <link rel="icon" href="favicon.webp" type="image/webp" />
+  <link rel="apple-touch-icon" href="favicon.webp" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-logo">Josh Soliz</a>
+    <ul class="nav-links">
+      <li><a href="nonprofit-video.html">Nonprofit Video</a></li>
+      <li><a href="testimonial-videos.html">Testimonials</a></li>
+      <li><a href="corporate-video.html">Corporate</a></li>
+      <li><a href="index.html#work">Work</a></li>
+      <li><a href="contact.html" class="nav-cta">Let's talk</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="service-hero">
+    <div class="container">
+      <p class="section-label">Corporate Video Production</p>
+      <h1>Filmed professionally.<br />Delivered on time.</h1>
+      <p class="service-hero-lead">
+        Josh Soliz produces corporate video for businesses and organizations in Middle Tennessee — conference coverage, brand films, training video, and event highlight reels. Single-day event coverage starts at $1,500. Based in Clarksville, TN; serves clients across the Nashville metro area.
+      </p>
+      <div class="hero-ctas">
+        <a href="contact.html" class="btn-primary">Request a Corporate Video Quote →</a>
+        <a href="#pricing" class="btn-hero-secondary">See pricing ↓</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TYPES OF WORK -->
+  <section class="service-section">
+    <div class="container">
+      <p class="section-label">Types of work</p>
+      <h2>What Josh produces for corporate clients.</h2>
+      <div class="types-grid">
+
+        <div class="type-card">
+          <span class="type-num">01</span>
+          <h3>Conference &amp; Event Coverage</h3>
+          <p>Multi-day conferences, leadership summits, and training events — capturing keynote presentations, breakout sessions, speaker interviews, and hallway B-roll. Deliverables include an edited highlight reel and, optionally, full-length session recordings.</p>
+        </div>
+
+        <div class="type-card">
+          <span class="type-num">02</span>
+          <h3>Brand Films</h3>
+          <p>A 3–5 minute film that shows who your company is, what you do, and why it matters. Interview-driven or narrated — Josh will recommend a structure based on your message and audience.</p>
+        </div>
+
+        <div class="type-card">
+          <span class="type-num">03</span>
+          <h3>Training &amp; Internal Video</h3>
+          <p>Procedure walkthroughs, employee onboarding content, and safety training video — produced for in-house use. They don't need to be cinematic. They need to be clear, well-lit, and easy to follow.</p>
+        </div>
+
+        <div class="type-card">
+          <span class="type-num">04</span>
+          <h3>Event Highlight Reels</h3>
+          <p>A 60–90 second summary of your event — launch party, annual conference, grand opening, team offsite — edited and delivered within 5–10 business days. Shareable on LinkedIn, YouTube, or embedded on your site.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT CLIENTS GET -->
+  <section class="service-section">
+    <div class="container">
+      <p class="section-label">What's included</p>
+      <h2>Professional gear. Clean deliverables.</h2>
+      <div class="deliverables-cols">
+
+        <div class="deliverables-col">
+          <h3>On-Set</h3>
+          <ul>
+            <li>Professional camera, audio, and lighting — no consumer-grade gear</li>
+            <li>Direction for interview subjects</li>
+            <li>Multi-camera setups for keynote or panel coverage</li>
+            <li>Same-day rough cuts available on request</li>
+          </ul>
+        </div>
+
+        <div class="deliverables-col">
+          <h3>Post-Production</h3>
+          <ul>
+            <li>Color grade, audio mix, licensed music</li>
+            <li>Branded title cards and lower thirds</li>
+            <li>Review link before final delivery</li>
+            <li>Files in web-ready H.264 and archive ProRes</li>
+          </ul>
+        </div>
+
+        <div class="deliverables-col">
+          <h3>Timeline</h3>
+          <ul>
+            <li>Event highlight reels: 5–10 business days from shoot</li>
+            <li>Brand films and longer productions: 15–20 business days</li>
+            <li>Rush delivery available, quoted per project</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PAST WORK -->
+  <section class="service-section">
+    <div class="container">
+      <p class="section-label">Past work</p>
+      <h2>Proven in the field.</h2>
+      <div class="past-work-card">
+        <h3>SCADA Academy Corporate Conference — Renaissance Nashville</h3>
+        <p>Josh filmed the SCADA Academy conference in 2024, handling stage coverage of keynote sessions, attendee interview B-roll, and a same-day highlight reel edit. The client received final files before the conference ended.</p>
+      </div>
+      <p class="pricing-note" style="margin-top:20px;">Additional corporate samples available at <a href="index.html#work" style="color:var(--blue);">joshsoliz.com</a></p>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="service-section" id="pricing">
+    <div class="container">
+      <p class="section-label">Pricing</p>
+      <h2>Transparent pricing. Itemized quotes.</h2>
+      <table class="pricing-table">
+        <thead>
+          <tr>
+            <th>Service</th>
+            <th>Range</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Single-day event coverage (1 camera, edited highlight reel)</td>
+            <td>$1,500–$2,500</td>
+          </tr>
+          <tr>
+            <td>Multi-camera conference coverage with speaker interviews</td>
+            <td>$3,500–$5,500</td>
+          </tr>
+          <tr>
+            <td>Brand film (half-day shoot, full edit)</td>
+            <td>$3,000–$5,000</td>
+          </tr>
+          <tr>
+            <td>Training video (per module, up to 10 min)</td>
+            <td>$1,200–$2,000</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="pricing-note">Travel outside Middle Tennessee is quoted separately. For events in Nashville or within 60 miles of Clarksville, no travel fee applies.</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="service-section">
+    <div class="container">
+      <p class="section-label">Frequently asked questions</p>
+      <h2>Common questions.</h2>
+      <div class="faq-list">
+
+        <div class="faq-item">
+          <p class="faq-question">Do you handle audio at conferences and events?</p>
+          <p class="faq-answer">Yes. For conference and event work, Josh mixes from the house audio board when available — for stage presentations — and uses lavalier mics for interviews and smaller sessions. He brings his own audio kit as backup.</p>
+        </div>
+
+        <div class="faq-item">
+          <p class="faq-question">Can you film and deliver a highlight reel on the same day?</p>
+          <p class="faq-answer">For events where same-day delivery is a priority, Josh can produce a rough highlight reel on-site — typically a 60–90 second cut. Full color-graded and music-licensed delivery follows within 5 business days. Confirm same-day delivery in your initial inquiry so he can plan accordingly.</p>
+        </div>
+
+        <div class="faq-item">
+          <p class="faq-question">Do you bring your own lighting and equipment?</p>
+          <p class="faq-answer">Yes. Josh operates a full production rig — Panasonic G85 (primary) with SmallRig cinema cage, Tilta matte box, follow focus, V-mount power, and FEELWORLD monitor. Lighting and audio are included in every quote. He does not require a studio or venue-provided gear.</p>
+        </div>
+
+        <div class="faq-item">
+          <p class="faq-question">Can you produce video for use in paid advertising?</p>
+          <p class="faq-answer">Yes. Brand film footage and testimonial content can be re-cut for pre-roll ads, LinkedIn video ads, or YouTube campaigns. Music licensing for ad use is a separate cost and will be noted in your quote. Josh can also produce vertical and square formats alongside the primary deliverable.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="service-cta">
+    <div class="container">
+      <div class="service-cta-inner">
+        <p class="section-label">Get started</p>
+        <h2>Filming an event or producing<br />a brand film in Middle Tennessee?</h2>
+        <p>Send Josh your event date, location, and what you want the final video to accomplish. He'll follow up within 24 hours with questions or a preliminary quote.</p>
+        <div class="service-cta-btns">
+          <a href="contact.html" class="btn-primary">Request a Corporate Video Quote →</a>
+          <a href="index.html#work" class="btn-secondary">View portfolio →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-inner">
+      <a href="index.html" class="nav-logo">Josh Soliz</a>
+      <p class="footer-copy">© 2026 · Video Marketing · Clarksville, TN</p>
+      <div class="footer-links">
+        <a href="https://instagram.com/joshuasoliz_" target="_blank">Instagram</a>
+        <a href="https://linkedin.com/in/joshua-soliz/" target="_blank">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

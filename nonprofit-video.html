@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Nonprofit Video Production — Josh Soliz Media | Clarksville, TN</title>
+  <meta name="description" content="Josh Soliz produces testimonial videos, brand films, and event coverage for nonprofits, churches, and ministries in Tennessee. Packages from $2,500. Based in Clarksville, TN." />
+  <link rel="canonical" href="https://joshsoliz.com/nonprofit-video.html" />
+
+  <!-- Service Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Nonprofit Video Production",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "Josh Soliz Media",
+      "url": "https://joshsoliz.com",
+      "email": "hello@joshsoliz.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Clarksville",
+        "addressRegion": "TN",
+        "addressCountry": "US"
+      },
+      "areaServed": ["Clarksville, TN", "Nashville, TN", "Middle Tennessee"]
+    },
+    "description": "Testimonial videos, brand films, and event coverage for nonprofits, churches, and ministries in Tennessee. Packages start at $2,500.",
+    "areaServed": ["Clarksville, TN", "Nashville, TN", "Middle Tennessee"],
+    "serviceType": "Nonprofit Video Production",
+    "offers": {
+      "@type": "AggregateOffer",
+      "lowPrice": "1500",
+      "highPrice": "8000",
+      "priceCurrency": "USD"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Nonprofit Video Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Single-subject testimonial video",
+            "description": "1 shoot day, full edit, hero cut and social cut"
+          },
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "minPrice": "2500",
+            "maxPrice": "3500",
+            "priceCurrency": "USD"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Multi-subject testimonial series (3 subjects)",
+            "description": "Full edit suite for 3 subjects"
+          },
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "minPrice": "5000",
+            "maxPrice": "8000",
+            "priceCurrency": "USD"
+          }
+        }
+      ]
+    },
+    "mainEntityOfPage": {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How much does nonprofit video production cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A single-subject testimonial video from Josh Soliz Media starts at $2,500 and typically runs $2,500–$3,500, including one shoot day, editing, and two final cuts. A multi-subject series of three testimonials typically runs $5,000–$8,000."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does a nonprofit video project take?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Most testimonial projects are delivered within 10 business days of the shoot. Larger projects take 15–20 business days. Rush delivery (5–7 business days) is available for an additional fee."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you work with churches and ministries?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Josh spent five years on the production staff at Fresh Life Church and currently produces content at REBOOT Recovery, a faith-based nonprofit. He works comfortably in church environments and understands ministry communication goals and approval processes."
+          }
+        }
+      ]
+    }
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Sora:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── SERVICE PAGE LAYOUT ── */
+    .service-hero {
+      padding: 160px 0 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 50% at 50% 0%, rgba(29, 78, 138, 0.3) 0%, transparent 65%),
+        var(--navy-deep);
+      pointer-events: none;
+    }
+
+    .service-hero .container {
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
+    }
+
+    .service-hero h1 {
+      font-size: clamp(36px, 5.5vw, 64px);
+      font-weight: 700;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      margin-bottom: 24px;
+    }
+
+    .service-hero-lead {
+      font-size: clamp(16px, 2vw, 19px);
+      color: var(--gray);
+      line-height: 1.75;
+      margin-bottom: 40px;
+      max-width: 640px;
+    }
+
+    /* ── CONTENT SECTIONS ── */
+    .service-section {
+      padding: 80px 0;
+      border-top: 1px solid var(--gray-dim);
+    }
+
+    .service-section h2 {
+      font-size: clamp(24px, 3.5vw, 36px);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 32px;
+    }
+
+    .service-section p {
+      font-size: 16px;
+      color: var(--gray);
+      line-height: 1.8;
+      margin-bottom: 20px;
+      max-width: 680px;
+    }
+
+    /* ── WHAT'S INCLUDED ── */
+    .included-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .included-card {
+      background: var(--navy);
+      border: 1px solid var(--gray-dim);
+      border-radius: 8px;
+      padding: 36px 32px;
+    }
+
+    .included-card h3 {
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+
+    .included-card ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .included-card ul li {
+      font-size: 15px;
+      color: var(--gray);
+      line-height: 1.6;
+      padding-left: 18px;
+      position: relative;
+    }
+
+    .included-card ul li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--blue);
+      font-size: 13px;
+    }
+
+    /* ── PRICING TABLE ── */
+    .pricing-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 8px;
+    }
+
+    .pricing-table th {
+      font-family: var(--font);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--blue);
+      text-align: left;
+      padding: 14px 20px;
+      border-bottom: 1px solid var(--gray-dim);
+      background: var(--navy-mid);
+    }
+
+    .pricing-table td {
+      font-size: 15px;
+      color: var(--gray);
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--gray-dim);
+      vertical-align: top;
+    }
+
+    .pricing-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .pricing-table td:first-child {
+      color: var(--white);
+      font-weight: 500;
+    }
+
+    .pricing-table td:last-child {
+      font-family: var(--font);
+      font-weight: 600;
+      color: var(--blue);
+      white-space: nowrap;
+    }
+
+    .pricing-table tbody tr {
+      background: var(--navy);
+      transition: background var(--transition);
+    }
+
+    .pricing-table tbody tr:hover {
+      background: var(--navy-mid);
+    }
+
+    .pricing-note {
+      font-size: 14px;
+      color: var(--gray);
+      margin-top: 16px;
+      line-height: 1.7;
+    }
+
+    .pricing-note em {
+      font-style: italic;
+    }
+
+    /* ── WHY JOSH ── */
+    .why-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .why-text h2 {
+      margin-bottom: 24px;
+    }
+
+    .why-credentials {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .credential-item {
+      background: var(--navy);
+      border: 1px solid var(--gray-dim);
+      border-left: 3px solid var(--blue);
+      border-radius: 0 6px 6px 0;
+      padding: 20px 24px;
+    }
+
+    .credential-item h4 {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+
+    .credential-item p {
+      font-size: 14px;
+      color: var(--gray);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* ── FAQ ── */
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border: 1px solid var(--gray-dim);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--gray-dim);
+      background: var(--navy);
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-question {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--white);
+      padding: 24px 28px 16px;
+      font-family: var(--font);
+    }
+
+    .faq-answer {
+      font-size: 15px;
+      color: var(--gray);
+      line-height: 1.75;
+      padding: 0 28px 24px;
+    }
+
+    /* ── CTA SECTION ── */
+    .service-cta {
+      padding: 120px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      border-top: 1px solid var(--gray-dim);
+    }
+
+    .service-cta::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(77, 184, 255, 0.05) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .service-cta-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .service-cta h2 {
+      font-size: clamp(32px, 5vw, 56px);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
+    }
+
+    .service-cta p {
+      font-size: 17px;
+      color: var(--gray);
+      max-width: 480px;
+      margin: 0 auto 40px;
+      line-height: 1.7;
+    }
+
+    .service-cta-btns {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 28px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 900px) {
+      .included-grid { grid-template-columns: 1fr; }
+      .why-inner { grid-template-columns: 1fr; gap: 40px; }
+    }
+
+    @media (max-width: 600px) {
+      .service-hero { padding: 140px 0 60px; }
+      .faq-question { padding: 20px 20px 12px; }
+      .faq-answer { padding: 0 20px 20px; }
+      .included-card { padding: 28px 24px; }
+    }
+  </style>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SV59LPTN0T"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-SV59LPTN0T');
+  </script>
+  <link rel="icon" href="favicon.webp" type="image/webp" />
+  <link rel="apple-touch-icon" href="favicon.webp" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-logo">Josh Soliz</a>
+    <ul class="nav-links">
+      <li><a href="nonprofit-video.html">Nonprofit Video</a></li>
+      <li><a href="testimonial-videos.html">Testimonials</a></li>
+      <li><a href="corporate-video.html">Corporate</a></li>
+      <li><a href="index.html#work">Work</a></li>
+      <li><a href="contact.html" class="nav-cta">Let's talk</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="service-hero">
+    <div class="container">
+      <p class="section-label">Nonprofit Video Production</p>
+      <h1>Video for the work<br />that actually matters.</h1>
+      <p class="service-hero-lead">
+        Josh Soliz produces testimonial videos, brand films, and event coverage for nonprofits, churches, and ministries across Tennessee. Packages start at $2,500. Delivered within 10 business days of the shoot date.
+      </p>
+      <div class="hero-ctas">
+        <a href="contact.html" class="btn-primary">Request a Quote →</a>
+        <a href="#pricing" class="btn-hero-secondary">See pricing ↓</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ANSWER-FIRST BLOCK (GEO) -->
+  <section class="service-section">
+    <div class="container">
+      <p class="section-label">What JSM does for nonprofits</p>
+      <p style="font-size:17px; color:var(--white); line-height:1.75; max-width:720px; margin-bottom:0;">
+        Josh Soliz Media is a freelance video production studio based in Clarksville, Tennessee. Josh specializes in testimonial video, documentary-style brand films, and event coverage for nonprofits, churches, ministries, and faith-based organizations. Projects serve clients in Clarksville, Nashville, and across Middle Tennessee. Single-subject testimonials start at $2,500 and are delivered within 10 business days.
+      </p>
+    </div>
+  </section>
+
+  <!-- WHO THIS IS FOR -->
+  <section class="service-section">
+    <div class="container">
+      <p class="section-label">Who this is for</p>
+      <h2>Built for mission-driven organizations.</h2>
+      <p>JSM works with nonprofits producing donor campaigns, annual reports, impact stories, and event highlight reels. Churches and ministries that need sermon series openers, event coverage, testimonial features, and social content. Faith-based organizations with programmatic content — recovery programs, community outreach, youth ministries.</p>
+      <p>If your organization tells stories that depend on real people sharing real experiences, testimonial and documentary-style video is the format that works — and it's what Josh builds.</p>
+    </div>
+  </section>
+
+  <!-- WHAT'S INCLUDED -->
+  <section class="service-section">
+    <div class="container">
+      <p class="section-label">What's included</p>
+      <h2>Full production, soup to nuts.</h2>
+      <div class="included-grid">
+
+        <div class="included-card">
+          <h3>Testimonial Videos</h3>
+          <ul>
+            <li>Pre-interview subject preparation — question guide and coaching call</li>
+            <li>Full production day: camera, audio, lighting, direction</li>
+            <li>B-roll coverage of your facility, staff, or programs</li>
+            <li>Edited hero cut (2–4 min) + social media cut (60–90 sec)</li>
+            <li>Motion graphic lower thirds with subject name and title</li>
+            <li>Delivered via Google Drive, ready to upload</li>
+          </ul>
+        </div>
+
+        <div class="included-card">
+          <h3>Brand Films</h3>
+          <ul>
+            <li>Half- or full-day shoot</li>
+            <li>Documentary-style narration or interview-driven structure</li>
+            <li>Full edit with music, titles, and color grade</li>
+            <li>Review link before final export</li>
+            <li>Files in H.264 (web) and ProRes (archive)</li>
+          </ul>
+        </div>
+
+        <div class="included-card">
+          <h3>Social Content Packages</h3>
+          <ul>
+            <li>Short-form cuts (15–60 seconds) from existing or new footage</li>
+            <li>Formatted for Instagram, Facebook, or YouTube Shorts</li>
+            <li>Batch delivery available</li>
+          </ul>
+        </div>
+
+        <div class="included-card">
+          <h3>Event Coverage</h3>
+          <ul>
+            <li>Single or multi-camera setup</li>
+            <li>Full event capture — keynote, breakouts, candid moments</li>
+            <li>Highlight reel edit within 5–10 business days of event</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="service-section" id="pricing">
+    <div class="container">
+      <p class="section-label">Pricing</p>
+      <h2>Clear pricing. No surprises.</h2>
+      <table class="pricing-table">
+        <thead>
+          <tr>
+            <th>Project Type</th>
+            <th>Range</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Single-subject testimonial (1 shoot day, 2 cuts)</td>
+            <td>$2,500–$3,500</td>
+          </tr>
+          <tr>
+            <td>Multi-subject testimonial series (3 subjects, full edit suite)</td>
+            <td>$5,000–$8,000</td>
+          </tr>
+          <tr>
+            <td>Nonprofit brand film (half-day, full edit)</td>
+            <td>$3,500–$6,000</td>
+          </tr>
+          <tr>
+            <td>Event highlight reel</td>
+            <td>$1,500–$2,500</td>
+          </tr>
+          <tr>
+            <td>Social content package (from existing footage)</td>
+            <td>$500–$1,200</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="pricing-note">Pricing depends on shoot days, number of subjects, travel, and deliverable count. Josh provides itemized quotes.</p>
+      <p class="pricing-note"><em>Grant-funded projects: Josh can provide documentation for video production line items.</em></p>
+    </div>
+  </section>
+
+  <!-- WHY JOSH -->
+  <section class="service-section">
+    <div class="container">
+      <div class="why-inner">
+        <div class="why-text">
+          <p class="section-label">Why Josh</p>
+          <h2>He's not an outside contractor guessing at your mission. He works inside one.</h2>
+          <p>Josh's current staff role at REBOOT Recovery — a faith-based nonprofit serving veterans, first responders, and trauma survivors — means he produces mission-driven video every week. He understands donor communication, program storytelling, and the approval layers that come with nonprofit content production.</p>
+          <p>When you hire Josh for your nonprofit's video, you're getting someone who has sat in those planning meetings, understands what your leadership is nervous about, and knows how to put a trauma survivor or reluctant interviewee at ease on camera.</p>
+        </div>
+        <div class="why-credentials">
+          <div class="credential-item">
+            <h4>REBOOT Recovery</h4>
+            <p>Embedded Visual Content Creator producing testimonial series and event coverage for a national faith-based nonprofit serving veteran and first responder communities.</p>
+          </div>
+          <div class="credential-item">
+            <h4>Fresh Life Church — 5 Years on Staff</h4>
+            <p>Built the production foundation in a church and ministry context. Understands the approval process, the sensitivities, and what makes congregation member stories land.</p>
+          </div>
+          <div class="credential-item">
+            <h4>Manna Church</h4>
+            <p>Produced a testimonial video series featuring congregation members sharing stories of personal transformation.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="service-section">
+    <div class="container">
+      <p class="section-label">Frequently asked questions</p>
+      <h2>Common questions.</h2>
+      <div class="faq-list">
+
+        <div class="faq-item">
+          <p class="faq-question">How much does nonprofit video production cost?</p>
+          <p class="faq-answer">A single-subject testimonial video from Josh Soliz Media starts at $2,500 and typically runs $2,500–$3,500, including one shoot day, editing, and two final cuts (a hero cut and a social media edit). A multi-subject series of three testimonials typically runs $5,000–$8,000. Pricing scales with the number of shoot days, subjects, travel, and deliverables.</p>
+        </div>
+
+        <div class="faq-item">
+          <p class="faq-question">How long does a nonprofit video project take?</p>
+          <p class="faq-answer">Most testimonial projects are delivered within 10 business days of the shoot. Larger projects — multi-subject series, brand films, or event coverage — take 15–20 business days. Rush delivery (5–7 business days) is available for an additional fee.</p>
+        </div>
+
+        <div class="faq-item">
+          <p class="faq-question">Do you work with churches and ministries?</p>
+          <p class="faq-answer">Yes. Josh spent five years on the production staff at Fresh Life Church and currently produces content at REBOOT Recovery, a faith-based nonprofit. He works comfortably in church environments and understands ministry communication goals, approval processes, and the sensitivities involved in sharing congregation member stories.</p>
+        </div>
+
+        <div class="faq-item">
+          <p class="faq-question">Can you film multiple subjects in one day?</p>
+          <p class="faq-answer">Yes. With proper scheduling, Josh can film 2–3 interview subjects in a single production day. He provides a pre-interview prep guide to each subject in advance, which keeps on-camera time efficient — typically 45–75 minutes per subject including setup.</p>
+        </div>
+
+        <div class="faq-item">
+          <p class="faq-question">Do you offer social media edits from the same footage?</p>
+          <p class="faq-answer">Yes. Every project includes at least one social media cut alongside the hero edit. Additional platform-specific cuts (Instagram Reels, YouTube Shorts, Facebook) are available as add-ons at $150–$300 per cut.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="service-cta">
+    <div class="container">
+      <div class="service-cta-inner">
+        <p class="section-label">Get started</p>
+        <h2>Tell us about<br />your project.</h2>
+        <p>Send Josh a message with your organization name, what you're trying to communicate, and your timeline. He'll respond within one business day with questions or a preliminary quote.</p>
+        <div class="service-cta-btns">
+          <a href="contact.html" class="btn-primary">Request a Quote →</a>
+          <a href="index.html#work" class="btn-secondary">View portfolio →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-inner">
+      <a href="index.html" class="nav-logo">Josh Soliz</a>
+      <p class="footer-copy">© 2026 · Video Marketing · Clarksville, TN</p>
+      <div class="footer-links">
+        <a href="https://instagram.com/joshuasoliz_" target="_blank">Instagram</a>
+        <a href="https://linkedin.com/in/joshua-soliz/" target="_blank">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

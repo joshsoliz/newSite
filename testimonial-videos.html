@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Testimonial Video Production — Josh Soliz Media | Tennessee</title>
+  <meta name="description" content="Testimonial video production for nonprofits, churches, and businesses in Tennessee. Single-subject shoots from $1,800. Hero cut + social clips delivered in 10 business days." />
+  <link rel="canonical" href="https://joshsoliz.com/testimonial-videos.html" />
+
+  <!-- Service Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Testimonial Video Production",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "Josh Soliz Media",
+      "url": "https://joshsoliz.com",
+      "email": "hello@joshsoliz.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Clarksville",
+        "addressRegion": "TN",
+        "addressCountry": "US"
+      },
+      "areaServed": ["Clarksville, TN", "Nashville, TN", "Middle Tennessee"]
+    },
+    "description": "Single-subject and multi-subject testimonial video production for nonprofits, churches, and businesses in Tennessee. Includes interview prep, full production day, hero cut and social clips.",
+    "serviceType": "Testimonial Video Production",
+    "offers": {
+      "@type": "AggregateOffer",
+      "lowPrice": "1800",
+      "highPrice": "6500",
+      "priceCurrency": "USD"
+    },
+    "mainEntityOfPage": {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How long is a testimonial video?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The standard hero cut is 2–4 minutes — long enough to tell a complete story, short enough to hold attention. Every project also includes a 60–90 second social cut for Instagram and Facebook. A 15–30 second clip for ads or Reels is available as an add-on."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much does a testimonial video cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A single-subject testimonial video is priced at $1,800–$2,800, including one shoot day, full edit, hero cut, and social cut. A multi-subject series of three testimonials runs $4,500–$6,500."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What if my subject gets nervous on camera?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "This is common and expected, especially with trauma survivors, elderly subjects, or people who have never been interviewed on video. Josh runs interviews at a conversational pace and doesn't push for perfect takes — he keeps going until the subject's natural voice comes through."
+          }
+        }
+      ]
+    }
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Sora:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── SERVICE PAGE LAYOUT ── */
+    .service-hero {
+      padding: 160px 0 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 50% at 50% 0%, rgba(29, 78, 138, 0.3) 0%, transparent 65%),
+        var(--navy-deep);
+      pointer-events: none;
+    }
+
+    .service-hero .container {
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
+    }
+
+    .service-hero h1 {
+      font-size: clamp(36px, 5.5vw, 64px);
+      font-weight: 700;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      margin-bottom: 24px;
+    }
+
+    .service-hero-lead {
+      font-size: clamp(16px, 2vw, 19px);
+      color: var(--gray);
+      line-height: 1.75;
+      margin-bottom: 40px;
+      max-width: 640px;
+    }
+
+    /* ── CONTENT SECTIONS ── */
+    .service-section {
+      padding: 80px 0;
+      border-top: 1px solid var(--gray-dim);
+    }
+
+    .service-section h2 {
+      font-size: clamp(24px, 3.5vw, 36px);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 32px;
+    }
+
+    .service-section p {
+      font-size: 16px;
+      color: var(--gray);
+      line-height: 1.8;
+      margin-bottom: 20px;
+      max-width: 680px;
+    }
+
+    /* ── WHAT'S INCLUDED ── */
+    .process-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border: 1px solid var(--gray-dim);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .process-step {
+      display: grid;
+      grid-template-columns: 64px 1fr;
+      gap: 24px;
+      align-items: start;
+      padding: 32px;
+      border-bottom: 1px solid var(--gray-dim);
+      background: var(--navy);
+    }
+
+    .process-step:last-child {
+      border-bottom: none;
+    }
+
+    .process-step-num {
+      font-family: var(--font);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: var(--blue);
+      padding-top: 3px;
+    }
+
+    .process-step h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+
+    .process-step ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .process-step ul li {
+      font-size: 15px;
+      color: var(--gray);
+      line-height: 1.6;
+      padding-left: 18px;
+      position: relative;
+    }
+
+    .process-step ul li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--blue);
+      font-size: 13px;
+    }
+
+    /* ── DELIVERABLES TABLE ── */
+    .deliverables-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .deliverables-table th {
+      font-family: var(--font);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--blue);
+      text-align: left;
+      padding: 14px 20px;
+      border-bottom: 1px solid var(--gray-dim);
+      background: var(--navy-mid);
+    }
+
+    .deliverables-table td {
+      font-size: 15px;
+      color: var(--gray);
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--gray-dim);
+      vertical-align: top;
+      background: var(--navy);
+    }
+
+    .deliverables-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    .deliverables-table td:first-child {
+      color: var(--white);
+      font-weight: 500;
+    }
+
+    /* ── PRICING ── */
+    .pricing-cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+
+    .pricing-card {
+      background: var(--navy);
+      border: 1px solid var(--gray-dim);
+      border-radius: 8px;
+      padding: 36px 32px;
+      transition: border-color var(--transition);
+    }
+
+    .pricing-card:hover {
+      border-color: rgba(77, 184, 255, 0.25);
+    }
+
+    .pricing-card-label {
+      font-family: var(--font);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 12px;
+    }
+
+    .pricing-card h3 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+
+    .pricing-card-price {
+      font-family: var(--font);
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--blue);
+      margin-bottom: 20px;
+    }
+
+    .pricing-card p {
+      font-size: 14px;
+      color: var(--gray);
+      line-height: 1.7;
+    }
+
+    .addons-list {
+      background: var(--navy);
+      border: 1px solid var(--gray-dim);
+      border-radius: 8px;
+      padding: 28px 32px;
+    }
+
+    .addons-list h3 {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+
+    .addons-list ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .addons-list ul li {
+      font-size: 15px;
+      color: var(--gray);
+      padding-left: 18px;
+      position: relative;
+    }
+
+    .addons-list ul li::before {
+      content: '+';
+      position: absolute;
+      left: 0;
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    /* ── HOW IT WORKS ── */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 2px;
+      background: var(--gray-dim);
+      border: 1px solid var(--gray-dim);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .step-card {
+      background: var(--navy);
+      padding: 32px 24px;
+    }
+
+    .step-num {
+      font-family: var(--font);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      color: var(--blue);
+      margin-bottom: 12px;
+    }
+
+    .step-card h3 {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+
+    .step-card p {
+      font-size: 14px;
+      color: var(--gray);
+      line-height: 1.65;
+    }
+
+    /* ── FAQ ── */
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border: 1px solid var(--gray-dim);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--gray-dim);
+      background: var(--navy);
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-question {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--white);
+      padding: 24px 28px 16px;
+      font-family: var(--font);
+    }
+
+    .faq-answer {
+      font-size: 15px;
+      color: var(--gray);
+      line-height: 1.75;
+      padding: 0 28px 24px;
+    }
+
+    /* ── CTA ── */
+    .service-cta {
+      padding: 120px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      border-top: 1px solid var(--gray-dim);
+    }
+
+    .service-cta::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(77, 184, 255, 0.05) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .service-cta-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .service-cta h2 {
+      font-size: clamp(32px, 5vw, 56px);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
+    }
+
+    .service-cta p {
+      font-size: 17px;
+      color: var(--gray);
+      max-width: 480px;
+      margin: 0 auto 40px;
+      line-height: 1.7;
+    }
+
+    .service-cta-btns {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 28px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 900px) {
+      .pricing-cards { grid-template-columns: 1fr; }
+      .steps-grid { grid-template-columns: 1fr; }
+      .process-step { grid-template-columns: 48px 1fr; gap: 16px; }
+    }
+
+    @media (max-width: 600px) {
+      .service-hero { padding: 140px 0 60px; }
+      .faq-question { padding: 20px 20px 12px; }
+      .faq-answer { padding: 0 20px 20px; }
+      .process-step { padding: 24px; }
+    }
+  </style>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SV59LPTN0T"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-SV59LPTN0T');
+  </script>
+  <link rel="icon" href="favicon.webp" type="image/webp" />
+  <link rel="apple-touch-icon" href="favicon.webp" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-logo">Josh Soliz</a>
+    <ul class="nav-links">
+      <li><a href="nonprofit-video.html">Nonprofit Video</a></li>
+      <li><a href="testimonial-videos.html">Testimonials</a></li>
+      <li><a href="corporate-video.html">Corporate</a></li>
+      <li><a href="index.html#work">Work</a></li>
+      <li><a href="contact.html" class="nav-cta">Let's talk</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="service-hero">
+    <div class="container">
+      <p class="section-label">Testimonial Video Production</p>
+      <h1>Real stories.<br />On someone's face.</h1>
+      <p class="service-hero-lead">
+        Josh Soliz produces testimonial videos for nonprofits, churches, and businesses across Tennessee. A single-subject testimonial — one shoot day, full edit, hero cut and social clip — starts at $1,800. Delivered within 10 business days.
+      </p>
+      <div class="hero-ctas">
+        <a href="contact.html" class="btn-primary">Get a Testimonial Quote →</a>
+        <a href="#pricing" class="btn-hero-secondary">See pricing ↓</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY TESTIMONIAL VIDEO WORKS -->
+  <section class="service-section">
+    <div class="container">
+      <p class="section-label">Why it works</p>
+      <h2>A written case study tells people what happened.<br />A testimonial video shows it on someone's face.</h2>
+      <p>For nonprofits and churches, that difference is the margin between a donor who reads and moves on and one who gives. Testimonial video is the format most likely to be shared, replayed, and remembered — viewers retain 95% of a message from video versus 10% from text.</p>
+      <p>The most effective testimonial videos are 2–4 minutes for a hero cut, with a 60–90 second social version edited from the same footage. That's the standard deliverable from every JSM testimonial project.</p>
+    </div>
+  </section>
+
+  <!-- WHAT'S INCLUDED -->
+  <section class="service-section">
+    <div class="container">
+      <p class="section-label">What's included</p>
+      <h2>Before, during, and after the shoot.</h2>
+      <div class="process-steps">
+
+        <div class="process-step">
+          <span class="process-step-num">Before</span>
+          <div>
+            <h3>Subject prep and logistics</h3>
+            <ul>
+              <li>Written prep guide — what to wear, what to expect, how to answer naturally on camera</li>
+              <li>Optional 15-minute coaching call for subjects who are nervous or camera-shy</li>
+              <li>Coordination of location logistics and scheduling</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="process-step">
+          <span class="process-step-num">Shoot</span>
+          <div>
+            <h3>Production day</h3>
+            <ul>
+              <li>Camera, lighting, and audio setup — typically 20–30 minutes</li>
+              <li>Subject warm-up and mic check</li>
+              <li>Guided interview — Josh conducts all interviews; you can provide approved questions in advance</li>
+              <li>B-roll coverage of your facility, programs, or staff</li>
+              <li>Total shoot time per subject: 1.5–2.5 hours</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="process-step">
+          <span class="process-step-num">Post</span>
+          <div>
+            <h3>Edit and delivery</h3>
+            <ul>
+              <li>Selects review and rough assembly</li>
+              <li>Final color grade, audio mix, music licensed for commercial use</li>
+              <li>Motion graphic lower thirds with subject name and title</li>
+              <li>Review link sent for client approval before final export</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FORMATS DELIVERED -->
+  <section class="service-section">
+    <div class="container">
+      <p class="section-label">What you get</p>
+      <h2>Every project includes three cuts.</h2>
+      <table class="deliverables-table">
+        <thead>
+          <tr>
+            <th>Deliverable</th>
+            <th>Length</th>
+            <th>Use</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Hero cut</td>
+            <td>2–4 min</td>
+            <td>Website, YouTube, donor presentations</td>
+          </tr>
+          <tr>
+            <td>Social cut</td>
+            <td>60–90 sec</td>
+            <td>Instagram, Facebook, LinkedIn</td>
+          </tr>
+          <tr>
+            <td>Short clip</td>
+            <td>15–30 sec</td>
+            <td>Instagram Reels, YouTube Shorts, paid ads</td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="font-size:14px; color:var(--gray); margin-top:16px; line-height:1.7;">Files delivered via Google Drive in H.264 (web-ready) and ProRes (archive quality) unless otherwise requested.</p>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="service-section" id="pricing">
+    <div class="container">
+      <p class="section-label">Pricing</p>
+      <h2>Itemized quotes. No surprises.</h2>
+      <div class="pricing-cards">
+        <div class="pricing-card">
+          <p class="pricing-card-label">Single Subject</p>
+          <h3>One Subject</h3>
+          <p class="pricing-card-price">$1,800–$2,800</p>
+          <p>One shoot day, full edit — hero cut and social cut. Includes interview prep, on-site production, B-roll, and post-production.</p>
+        </div>
+        <div class="pricing-card">
+          <p class="pricing-card-label">Series</p>
+          <h3>Three Subjects</h3>
+          <p class="pricing-card-price">$4,500–$6,500</p>
+          <p>One to two shoot days, full edit suite for all three subjects — hero and social cuts for each. Best value for donor campaigns or awareness series.</p>
+        </div>
+      </div>
+      <div class="addons-list">
+        <h3>Add-ons</h3>
+        <ul>
+          <li>Additional social cuts: $150–$300 each</li>
+          <li>B-roll package (dedicated b-roll day): $750–$1,200</li>
+          <li>Motion graphic lower thirds: $100–$200 each</li>
+          <li>Rush delivery (5–7 business days): +$300–$500</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="service-section">
+    <div class="container">
+      <p class="section-label">How it works</p>
+      <h2>Five steps from inquiry to delivery.</h2>
+      <div class="steps-grid">
+        <div class="step-card">
+          <p class="step-num">01</p>
+          <h3>Inquiry</h3>
+          <p>Send Josh your project details — subject count, timeline, location, and what you want viewers to take away. He'll respond within 24 hours.</p>
+        </div>
+        <div class="step-card">
+          <p class="step-num">02</p>
+          <h3>Quote &amp; scheduling</h3>
+          <p>Josh sends a detailed quote and proposed shoot date. On approval and deposit, he sends a prep guide to your interview subjects.</p>
+        </div>
+        <div class="step-card">
+          <p class="step-num">03</p>
+          <h3>Production day</h3>
+          <p>Josh arrives on-site, sets up, conducts the interview, captures B-roll. Most single-subject shoots wrap in under 3 hours.</p>
+        </div>
+        <div class="step-card">
+          <p class="step-num">04</p>
+          <h3>Edit &amp; review</h3>
+          <p>Josh cuts the video and sends a private review link. You provide feedback; he delivers the final revision.</p>
+        </div>
+        <div class="step-card">
+          <p class="step-num">05</p>
+          <h3>Delivery</h3>
+          <p>Final files via Google Drive, typically within 10 business days of the shoot. You own all footage and finished files.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="service-section">
+    <div class="container">
+      <p class="section-label">Frequently asked questions</p>
+      <h2>Common questions.</h2>
+      <div class="faq-list">
+
+        <div class="faq-item">
+          <p class="faq-question">How long is a testimonial video?</p>
+          <p class="faq-answer">The standard hero cut is 2–4 minutes — long enough to tell a complete story, short enough to hold attention. Every project also includes a 60–90 second social cut for Instagram and Facebook. If you need a 15–30 second clip for ads or Reels, that's available as an add-on.</p>
+        </div>
+
+        <div class="faq-item">
+          <p class="faq-question">How do you prepare interview subjects?</p>
+          <p class="faq-answer">Before the shoot, Josh sends a written prep guide to each subject. It covers what to wear (solid colors, no logos), what to expect during the shoot, and how to answer interview questions naturally in complete sentences. For first-timers, he also offers a 15-minute coaching call. The goal is for subjects to arrive feeling prepared — not nervous.</p>
+        </div>
+
+        <div class="faq-item">
+          <p class="faq-question">What if my subject gets nervous on camera?</p>
+          <p class="faq-answer">This is common and expected, especially with trauma survivors, elderly subjects, or people who've never been interviewed on video. Josh runs interviews at a conversational pace and doesn't push for perfect takes — he keeps asking until the subject's natural voice comes through. In 6+ years of interview production, he's helped dozens of reluctant subjects get comfortable. It's part of the job.</p>
+        </div>
+
+        <div class="faq-item">
+          <p class="faq-question">How many cuts do I get?</p>
+          <p class="faq-answer">Every single-subject project includes a hero cut and one social cut. Multi-subject series include hero and social cuts for each subject. Additional cuts — platform-specific lengths, additional social versions — are available at $150–$300 each.</p>
+        </div>
+
+        <div class="faq-item">
+          <p class="faq-question">Can you film at our location?</p>
+          <p class="faq-answer">Yes. All testimonial shoots are filmed on-location at your office, facility, church, or a location of your choosing. Josh handles his own lighting and audio setup — he doesn't require a studio. If your space is tight or logistically challenging, flag it in your inquiry and he'll work through it with you in advance.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="service-cta">
+    <div class="container">
+      <div class="service-cta-inner">
+        <p class="section-label">Get started</p>
+        <h2>Ready to capture<br />your story on video?</h2>
+        <p>Send Josh the basics — who you want to feature, your timeline, and your location. He'll send a quote within 24 hours.</p>
+        <div class="service-cta-btns">
+          <a href="contact.html" class="btn-primary">Get a Testimonial Quote →</a>
+          <a href="index.html#work" class="btn-secondary">View portfolio →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-inner">
+      <a href="index.html" class="nav-logo">Josh Soliz</a>
+      <p class="footer-copy">© 2026 · Video Marketing · Clarksville, TN</p>
+      <div class="footer-links">
+        <a href="https://instagram.com/joshuasoliz_" target="_blank">Instagram</a>
+        <a href="https://linkedin.com/in/joshua-soliz/" target="_blank">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
