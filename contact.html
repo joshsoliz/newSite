@@ -477,6 +477,7 @@
           body:    JSON.stringify(payload)
         });
 
+        const data = await res.json();
         if (res.ok) {
           feedback.className   = 'form-feedback success';
           feedback.textContent = 'Got it — I\'ll be in touch within 24 hours.';
@@ -486,11 +487,11 @@
           options.forEach(o => o.classList.remove('active'));
           btn.textContent = 'Sent';
         } else {
-          throw new Error('non-2xx response');
+          throw new Error(data.error || JSON.stringify(data));
         }
       } catch (err) {
         feedback.className   = 'form-feedback error';
-        feedback.textContent = 'Something went wrong. Email me directly at hello@joshsoliz.com.';
+        feedback.textContent = 'Error: ' + err.message;
         btn.disabled    = false;
         btn.textContent = 'Send it →';
       }
