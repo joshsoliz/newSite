@@ -444,7 +444,7 @@ footer .btn-primary {
 .video-placeholder {
   width: 100%;
   aspect-ratio: 16/9;
-  background: #f5f5f5;
+  background: var(--bg-primary);
   border: 1px solid var(--border);
   border-radius: 8px;
   overflow: hidden;
@@ -511,7 +511,7 @@ footer .btn-primary {
 }
 
 .service-card:hover {
-  background: #fafafa;
+  background: var(--white);
 }
 
 .service-card-cta {
@@ -589,7 +589,7 @@ footer .btn-primary {
   width: 100%;
   aspect-ratio: 16/9;
   border-radius: 6px;
-  background-color: #f0f0f0;
+  background-color: var(--border);
   background-size: cover;
   background-position: center;
   position: relative;
@@ -633,10 +633,10 @@ footer .btn-primary {
 }
 
 /* Placeholder colors — replace with background-image: url(...) */
-.work-thumb-1 { background-color: #0f2a3f; }
-.work-thumb-2 { background-color: #0a1f30; }
-.work-thumb-3 { background-color: #0d2338; }
-.work-thumb-4 { background-color: #091a28; }
+.work-thumb-1 { background-color: var(--bg-primary); }
+.work-thumb-2 { background-color: var(--bg-primary); }
+.work-thumb-3 { background-color: var(--bg-primary); }
+.work-thumb-4 { background-color: var(--bg-primary); }
 
 .work-overlay {
   position: absolute;
@@ -725,7 +725,7 @@ footer .btn-primary {
 .about-img-placeholder {
   width: 100%;
   aspect-ratio: 4/5;
-  background: #f5f5f5;
+  background: var(--bg-primary);
   border: 1px solid var(--border);
   border-radius: 8px;
   display: flex;
@@ -1004,15 +1004,15 @@ footer .btn-primary {
 
 /* Placeholder gradients — replace with real images */
 .folio-card-bg--sermon {
-  background: linear-gradient(160deg, #f0f0f0 0%, #e5e5e5 40%, #f8f8f8 100%);
+  background: linear-gradient(160deg, var(--border) 0%, var(--border) 40%, var(--bg-primary) 100%);
 }
 
 .folio-card-bg--photo {
-  background: linear-gradient(160deg, #f5f5f5 0%, #ebebeb 40%, #f0f0f0 100%);
+  background: linear-gradient(160deg, var(--white) 0%, var(--border) 40%, var(--bg-primary) 100%);
 }
 
 .folio-card-bg--video {
-  background: linear-gradient(160deg, #f8f8f8 0%, #f0f0f0 40%, #eeeeee 100%);
+  background: linear-gradient(160deg, var(--bg-primary) 0%, var(--border) 40%, var(--white) 100%);
 }
 
 .folio-card:hover .folio-card-bg {
