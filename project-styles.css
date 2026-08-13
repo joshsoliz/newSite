@@ -65,8 +65,8 @@
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--text-primary);
-  background: rgba(5,8,15,0.5);
-  border: 1px solid rgba(77,184,255,0.25);
+  background: rgba(248,248,248,0.8);
+  border: 1px solid var(--border);
   padding: 5px 12px;
   border-radius: 3px;
 }
