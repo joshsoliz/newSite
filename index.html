@@ -48,168 +48,83 @@
   <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Sora:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
   <style>
-    /* ── HERO ── */
     .hero {
-      min-height: 70vh;
-      display: flex;
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 60px;
       align-items: center;
-      justify-content: center;
-      background: var(--bg-primary);
-      padding: 120px 40px 80px;
-      text-align: center;
+      background: var(--navy-deep);
+      padding: 60px 40px 120px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .hero-media {
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: var(--navy-mid);
+      border: 1px solid var(--gray-dim);
+      border-radius: 8px;
     }
 
     .hero-content {
-      max-width: 900px;
+      text-align: right;
       padding: 0;
     }
 
-    .hero-image {
-      width: 200px;
-      height: 200px;
-      border-radius: 8px;
-      overflow: hidden;
-      margin: 0 auto 32px;
-    }
-
-    .hero-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
     .hero-headline {
-      font-size: clamp(24px, 3vw, 36px);
+      font-size: clamp(24px, 3vw, 42px);
       font-weight: 700;
       line-height: 1.3;
       letter-spacing: -0.02em;
-      color: var(--text-primary);
-      margin-bottom: 0;
+      color: var(--white);
+      margin-bottom: 20px;
     }
 
     .hero-subheading {
       font-size: 16px;
       line-height: 1.6;
-      color: var(--text-secondary);
-      margin: 20px 0 30px;
+      color: var(--gray);
+      margin: 0 0 24px 0;
     }
 
     .hero-ctas {
       display: flex;
       gap: 20px;
-      justify-content: center;
+      justify-content: flex-end;
       flex-wrap: wrap;
+      margin-top: 32px;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 80px 40px 60px;
+      }
+
+      .hero-content {
+        text-align: center;
+      }
+
+      .hero-ctas {
+        justify-content: center;
+      }
+
+      .hero-media {
+        aspect-ratio: 16/9;
+        order: -1;
+      }
     }
 
     @media (max-width: 768px) {
       .hero {
         padding: 100px 24px 60px;
-      }
-
-      .hero-image {
-        width: 150px;
-        height: 150px;
+        gap: 32px;
       }
 
       .hero-headline {
         font-size: 24px;
-      }
-    }
-
-    /* ── GEO ANSWER BLOCK ── */
-    .geo-answer {
-      padding: 72px 0;
-      border-top: 1px solid var(--gray-dim);
-    }
-
-    .geo-answer-inner {
-      display: grid;
-      grid-template-columns: 1fr 2fr;
-      gap: 64px;
-      align-items: start;
-    }
-
-    .geo-answer-label h2 {
-      font-size: clamp(20px, 2.5vw, 26px);
-      font-weight: 700;
-      line-height: 1.2;
-      letter-spacing: -0.02em;
-      color: var(--white);
-    }
-
-    .geo-answer-body p {
-      font-size: 16px;
-      color: var(--gray);
-      line-height: 1.8;
-      margin-bottom: 20px;
-    }
-
-    .geo-answer-body p:last-child {
-      margin-bottom: 0;
-    }
-
-    .geo-answer-body strong {
-      color: var(--white);
-      font-weight: 600;
-    }
-
-    @media (max-width: 900px) {
-      .geo-answer-inner {
-        grid-template-columns: 1fr;
-        gap: 28px;
-      }
-    }
-
-    /* ── PROCESS ── */
-    .process {
-      padding: 96px 0;
-      border-top: 1px solid var(--gray-dim);
-    }
-
-    .process h2 {
-      font-size: clamp(26px, 3.5vw, 38px);
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      margin-bottom: 48px;
-    }
-
-    .process-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 40px;
-    }
-
-    .process-step {
-      border-top: 1px solid var(--gray-dim);
-      padding-top: 24px;
-    }
-
-    .process-step .step-num {
-      display: block;
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 0.15em;
-      color: var(--blue);
-      margin-bottom: 14px;
-    }
-
-    .process-step h3 {
-      font-size: 19px;
-      font-weight: 600;
-      margin-bottom: 12px;
-    }
-
-    .process-step p {
-      font-size: 15px;
-      color: var(--gray);
-      line-height: 1.75;
-    }
-
-    @media (max-width: 900px) {
-      .process-grid {
-        grid-template-columns: 1fr;
-        gap: 32px;
       }
     }
   </style>
@@ -229,27 +144,24 @@
 </head>
 <body>
 
-  <div style="background: #1a1a1a; color: #f8f8f8; padding: 20px; text-align: center; font-size: 16px; border-bottom: 1px solid #e5e5e5;">
-    🚧 Site under construction — new design coming soon. Check back shortly.
-  </div>
-
   <!-- NAV -->
   <nav>
     <span class="nav-logo">Josh Soliz</span>
     <ul class="nav-links">
       <li><a href="#work">Work</a></li>
-      <li><a href="https://calendar.app.google/WehvDsfEGSSN2PGE7" target="_blank" rel="noopener" class="nav-cta">Book a call</a></li>
+      <li><a href="contact.html" target="_blank" rel="noopener" class="nav-cta">Book a call</a></li>
     </ul>
   </nav>
 
   <!-- HERO -->
   <section class="hero">
+    <div class="hero-media">
+      <iframe src="https://iframe.mediadelivery.net/embed/563470/fda19b02-1470-49c8-8bd5-f665973f8e04?autoplay=true&loop=true&muted=true&controls=false&preload=true&responsive=true" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;" allowfullscreen style="width:100%;height:100%;border:none;border-radius:8px;display:block;"></iframe>
+    </div>
     <div class="hero-content">
-      <div class="hero-image">
-        <img src="images/josh-headshot.jpg" alt="Josh Soliz" />
-      </div>
-      <h1 class="hero-headline">Don't let the video undercut the work</h1>
-      <p class="hero-subheading">Josh Soliz Media is a director of photography specializing in corporate communications, based in Middle Tennessee and available nationwide.</p>
+      <h1 class="hero-headline">Don't waste your message on weak visuals</h1>
+      <p class="hero-subheading">Josh Soliz is a videographer creating content that works for nonprofits and corporate communications teams. Based in Clarksville, working nationwide.</p>
+      <p class="hero-subheading">Josh Soliz Media can support full productions or provide additional crew for your next project. Let's make something great together.</p>
       <div class="hero-ctas">
         <a href="#touchpoints" class="btn-primary">Get in touch →</a>
       </div>
@@ -266,51 +178,45 @@
     </div>
   </div>
 
-  <!-- WHAT IS JOSH SOLIZ MEDIA? (GEO answer block) -->
-  <section class="geo-answer">
+  <!-- TESTIMONIALS -->
+  <section class="testimonials">
     <div class="container">
-      <div class="geo-answer-inner">
-        <div class="geo-answer-label">
-          <p class="section-label">What is JSM?</p>
-          <h2>What is Josh Soliz Media?</h2>
-        </div>
-        <div class="geo-answer-body">
-          <p>
-            <strong>Josh Soliz Media</strong> is a corporate video production studio based in Clarksville, Tennessee, serving Nashville and Middle Tennessee. Josh Soliz specializes in conference and event coverage, executive interviews and testimonial video, brand films, and motion graphics for marketing teams and executives.
-          </p>
-          <p>
-            Projects are produced for clients in <strong>Clarksville, Nashville, and across Middle Tennessee</strong>. Services include <a href="corporate-video.html" style="color:var(--blue);">corporate event coverage</a>, <a href="testimonial-videos.html" style="color:var(--blue);">executive testimonial video</a>, <a href="nonprofit-video.html" style="color:var(--blue);">nonprofit video production</a>, and motion design. Every engagement is scoped in writing with a fixed delivery date — most projects are delivered within 10 business days of the shoot.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
+      <p class="section-label">What people say</p>
+      <div class="testimonials-grid">
 
-  <!-- WHAT I MAKE -->
-  <section class="services" id="services">
-    <div class="container">
-      <p class="section-label">What I make</p>
-      <div class="services-grid">
+        <div class="testimonial-card">
+          <p class="quote">"Soliz is the best of the best. I've collaborated with him on multiple projects and he has proven to be both highly reliable and skilled, consistently delivering excellent results."</p>
+          <div class="testimonial-author">
+            <span class="author-name">Josh Doyle</span>
+            <span class="author-title">No Longer Nomads</span>
+          </div>
+        </div>
 
-        <a href="project-frr.html" class="service-card">
-          <span class="service-num">01</span>
-          <h3>Conference & Event Coverage</h3>
-          <p>Your event is a moment. The video should be too. I show up prepared, stay out of the way, and deliver something your team will actually want to send out — not something that just proves the event happened.</p>
-          <span class="service-card-cta">See an example <span class="service-card-cta-arrow">→</span></span>
+        <a href="project-shinin.html#video" class="testimonial-card testimonial-card--linked">
+          <p class="quote">"Josh is as skilled as he is accessible. So easy to work with, and you can feel his genuine excitement to be part of your project."</p>
+          <div class="testimonial-author">
+            <span class="author-name">Joe Vercellino</span>
+            <span class="author-title">The Lion Heart Experience</span>
+          </div>
+          <span class="testimonial-cta">See the work →</span>
         </a>
 
-        <a href="project-easter.html" class="service-card">
-          <span class="service-num">02</span>
-          <h3>Executive Interviews & Testimonials</h3>
-          <p>The hardest part of a talking-head video isn't the camera — it's making someone look and sound like themselves. I know how to get a real person on screen, not a nervous executive reading a script.</p>
-          <span class="service-card-cta">See an example <span class="service-card-cta-arrow">→</span></span>
+        <a href="project-two-kays.html#farm-video" class="testimonial-card testimonial-card--linked">
+          <p class="quote">"Working with Joshua was a great experience—he took the time to understand our vision and was genuinely invested in capturing the little moments that make our flower farm so special. The final project was everything we hoped for and truly reflects the heart of what we do."</p>
+          <div class="testimonial-author">
+            <span class="author-name">Crystal Kay Allison</span>
+            <span class="author-title">Two Kay's Flower Farm</span>
+          </div>
+          <span class="testimonial-cta">See the work →</span>
         </a>
 
-        <a href="photography.html" class="service-card">
-          <span class="service-num">03</span>
-          <h3>Brand Films & Campaign Video</h3>
-          <p>You know what you're trying to say. I help you say it in a way that doesn't feel like a commercial. Strategy first, camera second — every decision tied back to what you actually need the video to do.</p>
-          <span class="service-card-cta">See an example <span class="service-card-cta-arrow">→</span></span>
+        <a href="project-mother-chorizos.html" class="testimonial-card testimonial-card--linked">
+          <p class="quote">"Josh has been heading up our social media content for a while now. He has a great eye for images and video and also has a good sense of social media trends, which makes for great and relatable content creation on social media platforms!"</p>
+          <div class="testimonial-author">
+            <span class="author-name">Christian Cabrales</span>
+            <span class="author-title">Mother Chorizo's</span>
+          </div>
+          <span class="testimonial-cta">See the work →</span>
         </a>
 
       </div>
@@ -371,101 +277,6 @@
     </div>
   </section>
 
-  <!-- PROCESS -->
-  <section class="process" id="process">
-    <div class="container">
-      <p class="section-label">How it works</p>
-      <h2>No chaos. No surprises.<br />Just a date on the calendar and a video that delivers.</h2>
-      <div class="process-grid">
-
-        <div class="process-step">
-          <span class="step-num">01 — SCOPE</span>
-          <h3>One call, one page</h3>
-          <p>We get on a short call, I ask the questions that matter, and you get a written scope with deliverables, timeline, and price. Projects start at $850 — no vague estimates, no scope creep later.</p>
-        </div>
-
-        <div class="process-step">
-          <span class="step-num">02 — SHOOT</span>
-          <h3>I show up ready</h3>
-          <p>Shot list built, gear redundant, schedule confirmed. I stay out of your event's way and out of your executives' hair. You'll barely know I'm there — until you see the footage.</p>
-        </div>
-
-        <div class="process-step">
-          <span class="step-num">03 — DELIVER</span>
-          <h3>On the date we agreed</h3>
-          <p>You get a review cut, one structured revision round, and final files in every format your channels need. The delivery date is in the scope — and I hit it.</p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section class="about" id="about">
-    <div class="container about-inner">
-      <div class="about-text">
-        <p class="section-label">About</p>
-        <h2>Hey, I'm Josh.<br />Let's make you look good.</h2>
-        <p>
-          I run Josh Soliz Media — a one-person video production studio based in Clarksville, TN. I cover corporate conferences, film executive interviews, and produce brand content for marketing teams across Middle Tennessee and beyond.
-        </p>
-        <p>
-          What you don't get with me: a big agency that hands your project off to a junior. What you do get: the same person who took the brief, on set with the camera, editing the final cut. No handoffs. No surprises. You always know exactly where things stand.
-        </p>
-        <a href="https://calendar.app.google/WehvDsfEGSSN2PGE7" target="_blank" rel="noopener" class="btn-secondary">Book a call →</a>
-      </div>
-      <div class="about-image">
-
-
-      </div>
-    </div>
-  </section>
-
-  <!-- TESTIMONIALS -->
-  <section class="testimonials">
-    <div class="container">
-      <p class="section-label">What people say</p>
-      <div class="testimonials-grid">
-
-        <div class="testimonial-card">
-          <p class="quote">"Soliz is the best of the best. I've collaborated with him on multiple projects and he has proven to be both highly reliable and skilled, consistently delivering excellent results."</p>
-          <div class="testimonial-author">
-            <span class="author-name">Josh Doyle</span>
-            <span class="author-title">No Longer Nomads</span>
-          </div>
-        </div>
-
-        <a href="project-shinin.html#video" class="testimonial-card testimonial-card--linked">
-          <p class="quote">"Josh is as skilled as he is accessible. So easy to work with, and you can feel his genuine excitement to be part of your project."</p>
-          <div class="testimonial-author">
-            <span class="author-name">Joe Vercellino</span>
-            <span class="author-title">The Lion Heart Experience</span>
-          </div>
-          <span class="testimonial-cta">See the work →</span>
-        </a>
-
-        <a href="project-two-kays.html#farm-video" class="testimonial-card testimonial-card--linked">
-          <p class="quote">"Working with Joshua was a great experience—he took the time to understand our vision and was genuinely invested in capturing the little moments that make our flower farm so special. The final project was everything we hoped for and truly reflects the heart of what we do."</p>
-          <div class="testimonial-author">
-            <span class="author-name">Crystal Kay Allison</span>
-            <span class="author-title">Two Kay's Flower Farm</span>
-          </div>
-          <span class="testimonial-cta">See the work →</span>
-        </a>
-
-        <a href="project-mother-chorizos.html" class="testimonial-card testimonial-card--linked">
-          <p class="quote">"Josh has been heading up our social media content for a while now. He has a great eye for images and video and also has a good sense of social media trends, which makes for great and relatable content creation on social media platforms!"</p>
-          <div class="testimonial-author">
-            <span class="author-name">Christian Cabrales</span>
-            <span class="author-title">Mother Chorizo's</span>
-          </div>
-          <span class="testimonial-cta">See the work →</span>
-        </a>
-
-      </div>
-    </div>
-  </section>
-
   <!-- CONTACT -->
   <section class="contact" id="contact">
     <div class="container contact-inner">
@@ -475,7 +286,7 @@
         <input type="email" name="email" placeholder="your@email.com" required autocomplete="email" />
         <button type="submit">Reach out →</button>
       </form>
-      <p class="contact-inline-alt">Ready to talk now? <a href="https://calendar.app.google/WehvDsfEGSSN2PGE7" target="_blank" rel="noopener">Book a 15-minute call.</a> Prefer to write? <a href="contact.html">Fill out the full form.</a></p>
+      <p class="contact-inline-alt">Ready to talk now? <a href="contact.html" target="_blank" rel="noopener">Book a 15-minute call.</a> Prefer to write? <a href="contact.html">Fill out the full form.</a></p>
       <div class="contact-inline-feedback" id="inlineFormFeedback"></div>
     </div>
   </section>
