@@ -57,12 +57,13 @@
       overflow: hidden;
       background: linear-gradient(135deg, var(--navy-mid), var(--navy-deep));
     }
-    .hero-bg {
+    .reel-bg {
       position: absolute;
       inset: 0;
+      z-index: 0;
       overflow: hidden;
     }
-    .hero-bg iframe {
+    .reel-bg iframe {
       position: absolute;
       top: 50%;
       left: 50%;
@@ -76,15 +77,16 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(90deg, rgba(5,8,15,.88) 0%, rgba(5,8,15,.55) 55%, rgba(5,8,15,.3) 100%);
+      z-index: 1;
+      background: linear-gradient(90deg, rgba(5,8,15,.88) 0%, rgba(5,8,15,.62) 55%, rgba(5,8,15,.45) 100%);
     }
     .hero-content {
       position: relative;
-      z-index: 1;
+      z-index: 2;
       width: 100%;
       max-width: var(--max-width);
       margin: 0 auto;
-      padding: 80px 40px 40px;
+      padding: 100px 40px 40px;
       text-align: left;
     }
     .hero-headline {
@@ -92,20 +94,29 @@
       font-weight: 800;
       line-height: 1.1;
       letter-spacing: -0.02em;
-      color: var(--white);
+      color: #fff;
+      text-shadow: 0 2px 14px rgba(0,0,0,.5), 0 1px 3px rgba(0,0,0,.6);
       max-width: 15ch;
       margin-bottom: 20px;
     }
     .hero-subheading {
       font-size: 17px;
       line-height: 1.6;
-      color: var(--white);
-      opacity: .85;
+      color: #fff;
+      text-shadow: 0 1px 10px rgba(0,0,0,.55), 0 1px 2px rgba(0,0,0,.6);
       max-width: 46ch;
       margin: 0;
     }
+    nav {
+      background: var(--navy-mid);
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      border-bottom: 1px solid var(--gray-dim);
+    }
+    nav .nav-links a:not(.nav-cta) { color: #fff; text-shadow: 0 1px 8px rgba(0,0,0,.6); }
+    nav .nav-links a.nav-cta { color: #fff !important; border-color: rgba(255,255,255,.7); text-shadow: 0 1px 8px rgba(0,0,0,.5); }
     .hero-ctas { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 32px; }
-    @media (prefers-reduced-motion: reduce) { .hero-bg iframe { display: none; } }
+    @media (prefers-reduced-motion: reduce) { .reel-bg iframe { display: none; } }
     @media (max-width: 768px) {
       .hero { height: 78vh; }
       .hero-content { padding: 100px 24px 40px; }
@@ -154,7 +165,7 @@
 
   <!-- HERO (showreel plays behind text) -->
   <section class="hero">
-    <div class="hero-bg" aria-hidden="true">
+    <div class="reel-bg" aria-hidden="true">
       <iframe src="https://iframe.mediadelivery.net/embed/563470/fda19b02-1470-49c8-8bd5-f665973f8e04?autoplay=true&loop=true&muted=true&controls=false&preload=true&responsive=true" title="Showreel" loading="eager" allow="autoplay; encrypted-media" tabindex="-1"></iframe>
     </div>
     <div class="hero-content">
