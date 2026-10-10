@@ -55,20 +55,24 @@
       display: flex;
       align-items: center;
       overflow: hidden;
-      background: linear-gradient(135deg, var(--navy-mid), var(--navy-deep));
+      background: var(--navy-deep);
     }
     .reel-bg {
       position: absolute;
-      inset: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 70%;
       z-index: 0;
       overflow: hidden;
+      container-type: size;
     }
     .reel-bg iframe {
       position: absolute;
       top: 50%;
       left: 50%;
-      width: max(100%, 177.78vh);
-      height: max(100%, 56.25vw);
+      width: max(100cqw, 177.78cqh);
+      height: max(100cqh, 56.25cqw);
       transform: translate(-50%, -50%);
       border: 0;
       pointer-events: none;
@@ -78,7 +82,13 @@
       position: absolute;
       inset: 0;
       z-index: 1;
-      background: linear-gradient(90deg, rgba(5,8,15,.88) 0%, rgba(5,8,15,.62) 55%, rgba(5,8,15,.45) 100%);
+      background: linear-gradient(90deg,
+        var(--navy-deep) 0%,
+        var(--navy-deep) 30%,
+        rgba(5,8,15,.85) 40%,
+        rgba(5,8,15,.4) 55%,
+        rgba(5,8,15,.1) 75%,
+        rgba(5,8,15,0) 100%);
     }
     .hero-content {
       position: relative;
@@ -96,16 +106,8 @@
       letter-spacing: -0.02em;
       color: #fff;
       text-shadow: 0 2px 14px rgba(0,0,0,.5), 0 1px 3px rgba(0,0,0,.6);
-      max-width: 15ch;
+      max-width: 12ch;
       margin-bottom: 20px;
-    }
-    .hero-subheading {
-      font-size: 17px;
-      line-height: 1.6;
-      color: #fff;
-      text-shadow: 0 1px 10px rgba(0,0,0,.55), 0 1px 2px rgba(0,0,0,.6);
-      max-width: 46ch;
-      margin: 0;
     }
     nav {
       background: var(--navy-mid) !important; /* beats the scroll handler in main.js */
@@ -118,7 +120,9 @@
     .hero-ctas { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 32px; }
     @media (prefers-reduced-motion: reduce) { .reel-bg iframe { display: none; } }
     @media (max-width: 768px) {
-      .hero { height: 78vh; }
+      .hero { height: 78vh; align-items: flex-start; }
+      .reel-bg { width: 100%; }
+      .hero::after { background: linear-gradient(180deg, var(--navy-deep) 0%, var(--navy-deep) 30%, rgba(5,8,15,.6) 55%, rgba(5,8,15,.1) 100%); }
       .hero-content { padding: 100px 24px 40px; }
     }
 
@@ -169,8 +173,7 @@
       <iframe src="https://iframe.mediadelivery.net/embed/563470/e8332a91-c71b-42c3-8f80-cfddd4f5d8b1?autoplay=true&loop=true&muted=true&controls=false&preload=true&responsive=true" title="Showreel" loading="eager" allow="autoplay; encrypted-media" tabindex="-1"></iframe>
     </div>
     <div class="hero-content">
-      <h1 class="hero-headline">Don't waste your message on weak visuals</h1>
-      <p class="hero-subheading">Josh Soliz is a corporate videographer creating content for marketing and communications teams. Based in Clarksville, working nationwide.</p>
+      <h1 class="hero-headline">Corporate videography in Middle Tennessee</h1>
       <div class="hero-ctas">
         <a href="contact.html" class="btn-primary">Book a call →</a>
       </div>
@@ -184,19 +187,19 @@
       <div class="proof-grid">
         <div>
           <iframe class="proof-video" src="https://iframe.mediadelivery.net/embed/563470/7782ee7d-7fde-46c6-92a3-719f429f2e6d?autoplay=false&preload=false&responsive=true" title="Resonate Leadership Lab" loading="lazy" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;" allowfullscreen></iframe>
-          <div class="proof-cap"><h3>Resonate Leadership Lab</h3><p>Brand film for a leadership consulting practice </p></div>
+          <div class="proof-cap"><h3>Resonate Leadership Lab</h3><p>Brand film for a leadership consulting practice (2:12)</p></div>
         </div>
         <div>
           <iframe class="proof-video" src="https://iframe.mediadelivery.net/embed/563470/57765ff7-164d-4a89-a6c6-4971ae52b53b?autoplay=false&preload=false&responsive=true" title="SCADA Academy" loading="lazy" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;" allowfullscreen></iframe>
-          <div class="proof-cap"><h3>SCADA Academy</h3><p>Day recap from a 12-hour conference at Renaissance Nashville </p></div>
+          <div class="proof-cap"><h3>SCADA Academy</h3><p>Day recap from a 12-hour conference at Renaissance Nashville (1:36)</p></div>
         </div>
         <div>
           <iframe class="proof-video" src="https://iframe.mediadelivery.net/embed/563470/b84d98ba-afd9-4cf1-8c37-e8a7ff0b6011?autoplay=false&preload=false&responsive=true" title="All Inspections Matter" loading="lazy" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;" allowfullscreen></iframe>
-          <div class="proof-cap"><h3>All Inspections Matter</h3><p>Breast Cancer Awareness Month spot for a home inspection company </p></div>
+          <div class="proof-cap"><h3>All Inspections Matter</h3><p>Breast Cancer Awareness Month spot for a home inspection company (0:19)</p></div>
         </div>
         <div>
           <iframe class="proof-video" src="https://iframe.mediadelivery.net/embed/563470/0df68896-0711-41b0-a77d-28fdbc4e0264?autoplay=false&preload=false&responsive=true" title="REBOOT Recovery" loading="lazy" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;" allowfullscreen></iframe>
-          <div class="proof-cap"><h3>REBOOT Recovery</h3><p>Full-length curriculum video, "First Responder REBOOT"</p></div>
+          <div class="proof-cap"><h3>REBOOT Recovery</h3><p>Full-length curriculum video, "Answering the Call" (18:27)</p></div>
         </div>
       </div>
     </div>
