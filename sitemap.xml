@@ -1,48 +1,98 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://joshsoliz.com/contact</loc>
+    <lastmod>2026-10-10</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://joshsoliz.com/corporate-video</loc>
+    <lastmod>2026-10-10</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://joshsoliz.com/</loc>
+    <lastmod>2026-10-10</lastmod>
     <priority>1.0</priority>
-    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://joshsoliz.com/motion</loc>
+    <lastmod>2026-10-10</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://joshsoliz.com/nonprofit-video</loc>
+    <lastmod>2026-10-10</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://joshsoliz.com/photo-folio</loc>
+    <lastmod>2026-10-10</lastmod>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://joshsoliz.com/photography</loc>
-    <priority>0.8</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://joshsoliz.com/contact</loc>
+    <lastmod>2026-10-10</lastmod>
     <priority>0.7</priority>
-    <changefreq>yearly</changefreq>
   </url>
   <url>
-    <loc>https://joshsoliz.com/project-two-kays</loc>
-    <priority>0.8</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://joshsoliz.com/project-shinin</loc>
-    <priority>0.8</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://joshsoliz.com/project-mother-chorizos</loc>
-    <priority>0.8</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://joshsoliz.com/project-frr</loc>
-    <priority>0.8</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://joshsoliz.com/project-fresh-life</loc>
-    <priority>0.8</priority>
-    <changefreq>monthly</changefreq>
+    <loc>https://joshsoliz.com/privacy</loc>
+    <lastmod>2026-10-10</lastmod>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://joshsoliz.com/project-easter</loc>
-    <priority>0.8</priority>
-    <changefreq>monthly</changefreq>
+    <lastmod>2026-10-10</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://joshsoliz.com/project-fresh-life</loc>
+    <lastmod>2026-10-10</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://joshsoliz.com/project-frr</loc>
+    <lastmod>2026-10-10</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://joshsoliz.com/project-life-church-easter</loc>
+    <lastmod>2026-10-10</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://joshsoliz.com/project-mother-chorizos</loc>
+    <lastmod>2026-10-10</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://joshsoliz.com/project-shinin</loc>
+    <lastmod>2026-10-10</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://joshsoliz.com/project-two-kays</loc>
+    <lastmod>2026-10-10</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://joshsoliz.com/sermon-folio</loc>
+    <lastmod>2026-10-10</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://joshsoliz.com/terms</loc>
+    <lastmod>2026-10-10</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://joshsoliz.com/testimonial-videos</loc>
+    <lastmod>2026-10-10</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://joshsoliz.com/video-folio</loc>
+    <lastmod>2026-10-10</lastmod>
+    <priority>0.9</priority>
   </url>
 </urlset>

@@ -1,5 +1,9 @@
 User-agent: *
 Allow: /
+Disallow: /thank-you
+Disallow: /email-signature
+Disallow: /linkedin-assets
+Disallow: /project
 
 # AI crawlers — explicitly allowed
 User-agent: GPTBot
