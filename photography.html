@@ -293,14 +293,21 @@
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
+    gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});try{if(localStorage.getItem('cookieConsent')==='granted')gtag('consent','update',{analytics_storage:'granted'});}catch(e){}
     gtag('js', new Date());
     gtag('config', 'G-SV59LPTN0T');
   </script>
-  <link rel="icon" href="favicon.webp" type="image/webp" />
-  <link rel="apple-touch-icon" href="favicon.webp" />
-  <!-- Start of HubSpot Embed Code -->
-  <script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/246885288.js"></script>
-  <!-- End of HubSpot Embed Code -->
+  <link rel="icon" href="favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="favicon-192x192.png" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <link rel="canonical" href="https://joshsoliz.com/photography.html" />
+  <meta property="og:title" content="Photography — Josh Soliz" />
+  <meta property="og:description" content="Event photography, brand portraits, and church coverage by Josh Soliz — Clarksville, TN photographer." />
+  <meta property="og:image" content="https://joshsoliz.com/og-image.jpg" />
+  <meta property="og:url" content="https://joshsoliz.com/photography.html" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
 </head>
 <body>
 
@@ -446,6 +453,10 @@
       <div class="footer-links">
         <a href="https://instagram.com/joshuasoliz_" target="_blank">Instagram</a>
         <a href="https://linkedin.com/in/joshua-soliz/" target="_blank">LinkedIn</a>
+      
+        <a href="mailto:hello@joshsoliz.com">hello@joshsoliz.com</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
       </div>
     </div>
   </footer>
@@ -505,5 +516,6 @@
       }
     });
   </script>
+  <script src="site.js" defer></script>
 </body>
 </html>

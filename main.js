@@ -157,6 +157,9 @@ window.addEventListener('scroll', () => {
 
     feedback.className = 'contact-inline-feedback';
     feedback.textContent = '';
+    const sendBtn = form.querySelector('button[type="submit"], button:not([type])');
+    const sendLabel = sendBtn ? sendBtn.textContent : '';
+    if (sendBtn) { sendBtn.disabled = true; sendBtn.textContent = 'Sending...'; }
 
     try {
       const res = await fetch('https://formspree.io/f/xzdjdkwb', {
@@ -175,5 +178,6 @@ window.addEventListener('scroll', () => {
       feedback.className = 'contact-inline-feedback error';
       feedback.textContent = 'Something went wrong. Try emailing me directly at hello@joshsoliz.com';
     }
+    if (sendBtn) { sendBtn.disabled = false; sendBtn.textContent = sendLabel; }
   });
 }());
